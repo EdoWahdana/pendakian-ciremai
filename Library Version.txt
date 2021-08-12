@@ -1,0 +1,12 @@
+=======     PHP Library     ========
+-   CodeIgniter         :   3.1.10
+
+
+=======     CSS Library     ========
+-   Bootstrap.min.css   :   4.3.1
+-   Animate.css         :   3.7.2
+
+=======     JS Library     ========
+-   Bootstrap.min.js    :   4.3.1
+-   JQuery.min.js       :   3.4.1
+-   JQuery-ui.min.js    :   1.12.1
