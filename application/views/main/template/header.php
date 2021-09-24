@@ -19,7 +19,7 @@
       <!-- Responsive-->
       <link rel="stylesheet" href="<?= base_url('assets/') ?>css/responsive.css">
       <!-- fevicon -->
-      <link rel="icon" href="<?= base_url('assets/') ?>icon/travel-icon.png" type="image/gif" />
+      <link rel="icon" href="<?= base_url('assets/') ?>icon/tngc.png" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="<?= base_url('assets/') ?>css/jquery.mCustomScrollbar.min.css">
       <!-- Tweaks for older IEs-->

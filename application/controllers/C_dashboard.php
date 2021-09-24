@@ -15,6 +15,8 @@ class C_dashboard extends CI_Controller {
         $this->load->model('m_menu_admin');
         $this->load->model('m_order');
         $this->load->model('m_customer');
+        $this->load->model('m_chat');
+        $this->load->model('m_interface');
 
         //Mengecek session
         if($this->session->userdata('status') != 'login'){
@@ -79,6 +81,31 @@ class C_dashboard extends CI_Controller {
         $this->load->view('admin/template/footer', $data);
     }  
 
+   public function laporan() {
+        // Ambil data order perbulan dari model laporan
+        $data['bulan'] = [];
+        $data['tahun'] = [];
+        $temp = $this->m_order->get_order_to_month();
+        foreach($temp as $t) {
+            array_push($data['bulan'], explode('-', $t['tanggal_naik'])[1]);
+            array_push($data['tahun'], explode('-', $t['tanggal_naik'])[0]);
+        }
+
+        // Filter elemen array yang redundan
+        $data['bulan'] = array_unique($data['bulan']);
+        $data['tahun'] = array_unique($data['tahun']);
+
+        //Variabel untuk menu, submenu, dan active
+        $data['menu'] = $this->menu;
+        $data['submenu'] = $this->submenu;
+        $data['aktif'] = 'Laporan';
+
+        $this->load->view('admin/template/header', $data);
+        $this->load->view('admin/template/navbar');
+        $this->load->view('admin/template/sidebar', $data);
+        $this->load->view('admin/laporan', $data);
+        $this->load->view('admin/template/footer', $data);
+   }
 
    public function menu_management() {
        
@@ -130,6 +157,68 @@ class C_dashboard extends CI_Controller {
         $this->load->view('admin/template/navbar');
         $this->load->view('admin/template/sidebar', $data);
         $this->load->view('admin/user', $data);
+        $this->load->view('admin/template/footer', $data);
+   }
+
+   public function chat() 
+   {
+        $data['menu'] = $this->menu;
+        $data['submenu'] = $this->submenu;
+        $data['aktif'] = 'Pesan';
+        
+        $data['chat'] = $this->m_chat->get_all_chat()->result_array();
+
+        $this->load->view('admin/template/header', $data);
+        $this->load->view('admin/template/navbar');
+        $this->load->view('admin/template/sidebar', $data);
+        $this->load->view('admin/chat', $data);
+        $this->load->view('admin/template/footer', $data);
+   }
+
+   public function chat_by_id() 
+   {
+        $id_customer = $this->input->get('id_customer');
+
+        $data['menu'] = $this->menu;
+        $data['submenu'] = $this->submenu;
+        $data['aktif'] = 'Pesan';
+        
+        $data['chat'] = $this->m_chat->get_customer_chat_by_id($id_customer)->result_array();
+
+        $this->load->view('admin/template/header', $data);
+        $this->load->view('admin/template/navbar');
+        $this->load->view('admin/template/sidebar', $data);
+        $this->load->view('admin/customer_chat', $data);
+        $this->load->view('admin/template/footer', $data);
+   }
+
+   public function interface_gambar()
+   {
+        $data['menu'] = $this->menu;
+        $data['submenu'] = $this->submenu;
+        $data['aktif'] = 'Interface';
+
+        $data['interface'] = $this->m_interface->get_interface()->result_array();
+
+        $this->load->view('admin/template/header', $data);
+        $this->load->view('admin/template/navbar');
+        $this->load->view('admin/template/sidebar', $data);
+        $this->load->view('admin/interface_gambar', $data);
+        $this->load->view('admin/template/footer', $data);
+   }
+
+   public function interface_tentang()
+   {
+        $data['menu'] = $this->menu;
+        $data['submenu'] = $this->submenu;
+        $data['aktif'] = 'Interface';
+
+        $data['interface'] = $this->m_interface->get_interface()->result_array();
+
+        $this->load->view('admin/template/header', $data);
+        $this->load->view('admin/template/navbar');
+        $this->load->view('admin/template/sidebar', $data);
+        $this->load->view('admin/interface_tentang', $data);
         $this->load->view('admin/template/footer', $data);
    }
 

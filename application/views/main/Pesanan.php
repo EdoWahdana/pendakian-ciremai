@@ -38,7 +38,7 @@
                         <td><?= indonesian_date($o['tanggal_turun']) ?></td>
                         <td>
                             <?php if($o['status_order'] == 0 && $o['bukti_pembayaran'] == '')
-                                    echo '<p class="text-warning">Belum melakukan pembayaran</p>';
+                                    echo '<a href="'.base_url('c_order/status?order=' . $o['kode_order']).'" class="text-warning">Belum melakukan pembayaran</p>';
                                   else if($o['status_order'] == 0 && $o['bukti_pembayaran'] != '')
                                     echo '<p class="text-info">Menunggu Konfirmasi';
                                   else if($o['status_order'] == 1 && $o['bukti_pembayaran'] != '')

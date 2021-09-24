@@ -27,6 +27,15 @@
                     ?>
                 </div>
                 <div class="col-sm-4 offset-sm-1 my-1 text-right">
+                    Harga
+                </div>
+                <div class="col-sm-2">
+                    :
+                </div>
+                <div class="col-sm-4 text-left mb-3">
+                    <p class="font-weight-bold h6"><?= $data_order[0]['harga'] ?>
+                </div>
+                <div class="col-sm-4 offset-sm-1 my-1 text-right">
                     Kode Booking
                 </div>
                 <div class="col-sm-2">
@@ -91,17 +100,17 @@
             <div class="row">
                 <div class="col-sm-3">
                     <img src="<?= base_url('assets/images/') ?>logo_bri.png" class="img" width="50">
-                    <p class="font-weight-bold">RENTAL DEDI JAYA</p>
+                    <p class="font-weight-bold">TNGC Kuningan</p>
                     <p class="font-weight-bold">981 9913 3881</p>
                 </div>
                 <div class="col-sm-3">
                     <img src="<?= base_url('assets/images/') ?>logo_bca.png" class="img" width="60">
-                    <p class="font-weight-bold">RENTAL DEDI JAYA</p>
+                    <p class="font-weight-bold">TNGC Kuningan</p>
                     <p class="font-weight-bold">981 9913 3881</p>
                 </div>
                 <div class="col-sm-3">
                     <img src="<?= base_url('assets/images/') ?>logo_mandiri.png" class="img" width="70">
-                    <p class="font-weight-bold">RENTAL DEDI JAYA</p>
+                    <p class="font-weight-bold">TNGC Kuningan</p>
                     <p class="font-weight-bold">981 9913 3881</p>
                 </div>
             </div>
@@ -110,12 +119,12 @@
             <div class="row">
                 <div class="col-sm-3">
                     <img src="<?= base_url('assets/images/') ?>logo_dana.png" class="img" width="100">
-                    <p class="font-weight-bold">RENTAL DEDI JAYA</p>
+                    <p class="font-weight-bold">TNGC Kuningan</p>
                     <p class="font-weight-bold">981 9913 3881</p>
                 </div>
                 <div class="col-sm-3">
                     <img src="<?= base_url('assets/images/') ?>logo_ovo.png" class="img" width="70">
-                    <p class="font-weight-bold">RENTAL DEDI JAYA</p>
+                    <p class="font-weight-bold">TNGC Kuningan</p>
                     <p class="font-weight-bold">981 9913 3881</p>
                 </div>
             </div>

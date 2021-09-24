@@ -8,7 +8,10 @@ class C_home extends CI_Controller {
 		$this->load->model('m_home');
 		$this->load->model('m_kuota');
 		$this->load->model('m_order');
+		$this->load->model('m_chat');
 		$this->load->model('m_customer');
+		$this->load->model('m_interface');
+		$this->load->helper('date');
 		$this->load->helper('indonesian_date');
 		$this->load->library('form_validation');
 	}
@@ -19,13 +22,14 @@ class C_home extends CI_Controller {
 		
 		//Ambil data banner aktif dan kirim ke view
 		$data['banner'] = $this->m_home->get_banners_active()->result_array();
-
-		//Ambil data service
-		// $data['services'] = $this->m_home->get_services_active()->result_array();
+		
+		//Ambil data banner aktif dan kirim ke view
+		$data['interface'] = $this->m_interface->get_interface()->result_array();
 
 		$this->load->view('main/template/header', $data);
 		$this->load->view('main/template/navbar');
 		$this->load->view('main/Home2', $data);
+		$this->load->view('main/template/chat');
 		$this->load->view('main/template/footer');
 		$this->load->view('main/template/end');
 	}

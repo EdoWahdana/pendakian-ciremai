@@ -1,6 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// Harga pendakian masih statis
+define('HARGA', 50000);
+
 class C_order extends CI_Controller {
 
 	public function __construct() {
@@ -71,7 +74,8 @@ class C_order extends CI_Controller {
             'kode_order' => $kode_order,
             'tanggal_naik' => $tanggal_naik,
             'tanggal_turun' => $tanggal_turun,
-            'status_order' => $status_order
+            'status_order' => $status_order,
+            'harga' => HARGA
         ];
         
         if($this->m_order->insert_order($dataOrder) != FALSE){

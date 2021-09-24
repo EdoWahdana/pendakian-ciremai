@@ -1,12 +1,12 @@
 <div class="container">
-    <h5 class="display-5 text-center my-3">Daftar Order Pendakian</h5>
+    <h2 class="text-center font-weight-bold">Daftar Order Pendakian</h2>
+    <hr>
     <?= $this->session->flashdata('message') ?>
     <div class="row">
         <div class="col">
             <table class="table table-bordered" id="mainTable">
                 <thead class="text-center">
                     <tr>
-                        <th>No</th>
                         <th>Kode Booking</th>
                         <th>Tanggal Naik</th>
                         <th>Tanggal Turun</th>
@@ -16,11 +16,9 @@
                 </thead>
                 <tbody>
                     <?php 
-                        $start = 0;
                         foreach($order as $o) {
                     ?>
                     <tr>
-                        <td class="font-weight-bold text-center"><?= ++$start; ?></td>
                         <td><?= $o['kode_order'] ?></td>
                         <td><?= indonesian_date($o['tanggal_naik']) ?></td>
                         <td><?= indonesian_date($o['tanggal_turun']) ?></td>
@@ -44,7 +42,7 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('#mainTable').dataTable();
+    document.addEventListener("DOMContentLoaded", function(event){
+        $('#mainTable').DataTable();
     });
 </script>

@@ -32,6 +32,7 @@ class C_admin extends CI_Controller {
 				if(password_verify($password, $admin['password'])){
 					//Membuat variabel session
 					$data = [
+						'id' => $admin['id_admin'],
 						'nama' => $admin['nama'],
 						'username' => $admin['username'],
 						'status' => 'login'

@@ -19,9 +19,9 @@
 
   <!-- Custom styles for this template-->
   <link href="<?= base_url('assets/'); ?>vendor/sbadmin/css/sb-admin.css" rel="stylesheet">
-  <link href="<?= base_url('assets/'); ?>css/styles.css" rel="stylesheet">
-  <link href="<?= base_url('assets/'); ?>css/effect.css" rel="stylesheet">
-  <link href="<?= base_url('assets/'); ?>css/dropzone.css" rel="stylesheet">
+  <link href="<?= base_url('assets/'); ?>css/style.css" rel="stylesheet">
+
+  <link rel="icon" href="<?= base_url('assets/') ?>icon/tngc.png" type="image/gif" />
 
 </head>
 

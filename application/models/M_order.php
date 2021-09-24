@@ -46,6 +46,19 @@ class M_order extends CI_Model {
         return $this->db->get('tbl_order')->result_array();
     }
 
+    public function get_order_by_periode($bulan, $tahun)
+    {
+        $this->db->like('tanggal_naik', $bulan);
+        $this->db->like('tanggal_naik', $tahun);
+        return $this->db->get('v_order')->result_array();
+    }
+
+    public function get_order_to_month()
+    {
+        $this->db->group_by('tanggal_naik');
+        return $this->db->get('tbl_order')->result_array();
+    }
+
     public function update_bukti_pembayaran($id_order, $foto_bukti)
     {
         $this->db->where('id_order', $id_order);

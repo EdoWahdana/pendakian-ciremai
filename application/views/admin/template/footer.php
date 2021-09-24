@@ -27,10 +27,6 @@
 
   <!-- Custom scripts for all pages-->
   <script src="<?= base_url('assets/'); ?>vendor/sbadmin/js/sb-admin.min.js"></script>
-
-  <!-- Script for Input Manipulation -->
-  <script src="<?= base_url('assets/'); ?>js/input.js"></script>
-  <script src="<?= base_url('assets/'); ?>js/dropzone.js"></script>
 </body>
 
 </html>

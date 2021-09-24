@@ -12,7 +12,7 @@
     <div class="container">
     <div class="row">
         <div class="col">
-            <h5 class="display-5 text-center">Cek Ketersediaan Kuota per Bulan</h5>
+            <h2 class="text-center font-weight-bold">Cek Ketersediaan Kuota per Bulan</h2>
             <div class="box">
                 <form id="periode" class="form-horizontal" method="post" action="<?= site_url('c_kuota/get_kuota_per_periode'); ?>">
                     <div class="form-group">
@@ -21,7 +21,7 @@
                         <div class="col-sm-10">
                             <select name="bulan" id="bulan" class="form-control">
                                 <option selected disabled>- Pilih Bulan -</option>
-                                <option value="01" <?= isset($bulan) ? ($bulan == '01' ? ' selected="selected"' : '') : '';?>>Januari</option>
+                                <option value="01" selected>Januari</option>
                                 <option value="02" <?= isset($bulan) ? ($bulan == '02' ? ' selected="selected"' : '') : '';?>>Februari</option>
                                 <option value="03" <?= isset($bulan) ? ($bulan == '03' ? ' selected="selected"' : '') : '';?>>Maret</option>
                                 <option value="04" <?= isset($bulan) ? ($bulan == '04' ? ' selected="selected"' : '') : '';?>>April</option>

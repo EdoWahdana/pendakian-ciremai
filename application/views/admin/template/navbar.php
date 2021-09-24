@@ -8,7 +8,6 @@
       <i class="fas fa-bars"></i>
     </button>
 
-
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-auto">
       <li class="nav-item dropdown no-arrow mx-1">

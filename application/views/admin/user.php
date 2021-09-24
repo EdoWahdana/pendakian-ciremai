@@ -1,5 +1,5 @@
 <div class="container">
-    <h5 class="display-5 text-center my-3">Daftar User</h5>
+    <h2 class="text-center font-weight-bold">Daftar User</h2>
     <hr>
     <?= $this->session->flashdata('message') ?>
     <div class="row">
@@ -7,7 +7,6 @@
             <table class="table table-bordered" id="mainTable">
                 <thead class="text-center">
                     <tr>
-                        <th>No</th>
                         <th>Nama</th>
                         <th>JK</th>
                         <th>Alamat</th>
@@ -21,11 +20,9 @@
                 </thead>
                 <tbody>
                     <?php 
-                        $start = 0;
                         foreach($customers as $user) {
                     ?>
                     <tr>
-                        <td><?= ++$start; ?></td>
                         <td><?= $user['nama'] ?></td>
                         <td><?= $user['jk'] ?></td>
                         <td><?= $user['alamat'] ?></td>
@@ -67,7 +64,7 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('#mainTable').dataTable();
+    document.addEventListener("DOMContentLoaded", function(event){
+      $("#mainTable").DataTable();
     });
 </script>

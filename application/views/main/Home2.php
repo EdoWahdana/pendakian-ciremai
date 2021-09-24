@@ -1,6 +1,6 @@
-<section >
+<section>
     <div class="banner-main">
-    <img src="<?= base_url('assets/') ?>images/ciremai1.png" alt="#"/>
+    <img src="<?= base_url('assets/images/banner/') . $interface[0]['gambar'] ?>" alt="#"/>
     <div class="container">
         <div class="text-bg">
             <h1>Pendakian<br><strong class="white">Gunung Ciremai</strong></h1>
@@ -54,7 +54,7 @@
         <div class="col-md-12 ">
             <div class="titlepage">
                 <h2>Tentang Gunung Ciremai</h2>
-                <span> fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span>
+                <span> <?= $interface[0]['tentang'] ?> </span>
             </div>
         </div>
     </div>
