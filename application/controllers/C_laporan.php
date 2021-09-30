@@ -22,10 +22,12 @@ class C_laporan extends CI_Controller {
 
         // Ambil data order berdasarkan inputan view laporan       
         $orders = $this->m_order->get_order_by_periode($this->input->post('bulan'), $this->input->post('tahun'));
+
         // Buat array untuk header di excel
         $header = [
                     'ID', 
                     'Nama', 
+                    'Tanggal Lahir', 
                     'Alamat', 
                     'JK', 
                     'Jenis Identitas', 
@@ -36,6 +38,7 @@ class C_laporan extends CI_Controller {
                     'Tanggal Naik', 
                     'Tanggal Turun', 
                     'Harga', 
+                    'Status', 
                     'Bukti Pembayaran'
                 ];
 
@@ -49,19 +52,21 @@ class C_laporan extends CI_Controller {
 
         // Set width column
         $activeSheet->getDefaultColumnDimension()->setWidth(30);
-        $activeSheet->getColumnDimension('A')->setWidth(5);
-        $activeSheet->getColumnDimension('B')->setWidth(20);
-        $activeSheet->getColumnDimension('C')->setWidth(30);
-        $activeSheet->getColumnDimension('D')->setWidth(5);
-        $activeSheet->getColumnDimension('E')->setWidth(10);
-        $activeSheet->getColumnDimension('F')->setWidth(20);
-        $activeSheet->getColumnDimension('G')->setWidth(15);
-        $activeSheet->getColumnDimension('H')->setWidth(20);
-        $activeSheet->getColumnDimension('I')->setWidth(20);
-        $activeSheet->getColumnDimension('J')->setWidth(15);
-        $activeSheet->getColumnDimension('K')->setWidth(15);
-        $activeSheet->getColumnDimension('L')->setWidth(10);
-        $activeSheet->getColumnDimension('M')->setWidth(40);
+        $activeSheet->getColumnDimension('A')->setWidth(5);     // Kolom ID
+        $activeSheet->getColumnDimension('B')->setWidth(20);    // Kolom nama
+        $activeSheet->getColumnDimension('C')->setWidth(15);    // Kolom tanggal lahir
+        $activeSheet->getColumnDimension('D')->setWidth(30);    // Kolom alamat
+        $activeSheet->getColumnDimension('E')->setWidth(5);     // Kolom jk
+        $activeSheet->getColumnDimension('F')->setWidth(10);    // Kolom jenis identitas
+        $activeSheet->getColumnDimension('G')->setWidth(20);    // Kolom no identitas
+        $activeSheet->getColumnDimension('H')->setWidth(20);    // Kolom no hp
+        $activeSheet->getColumnDimension('I')->setWidth(20);    // Kolom email
+        $activeSheet->getColumnDimension('J')->setWidth(20);    // Kolom kode order
+        $activeSheet->getColumnDimension('K')->setWidth(15);    // Kolom tanggal naik
+        $activeSheet->getColumnDimension('L')->setWidth(15);    // Kolom tangga turun
+        $activeSheet->getColumnDimension('M')->setWidth(20);    // Kolom Harga
+        $activeSheet->getColumnDimension('N')->setWidth(40);    // Kolom status
+        $activeSheet->getColumnDimension('O')->setWidth(40);    // Kolom bukti pembayaran
 
         // Style untuk header tabel
         $headerStyle = [
@@ -77,16 +82,25 @@ class C_laporan extends CI_Controller {
                 ],
             ],
         ];
-        $activeSheet->getStyle('A1:M1')->applyFromArray($headerStyle);
+        $activeSheet->getStyle('A1:O1')->applyFromArray($headerStyle);
         $activeSheet->getStyle('A1')->getAlignment()->setWrapText(TRUE);
         $activeSheet->getStyle('E1')->getAlignment()->setWrapText(TRUE);
 
+        
         // Perulangan untuk mengisi cell dari hasil query database
         $count = 2;
         foreach($orders as $order) {
+            // Lakukan pengecekan kondisi untuk kolom status pesanan
+            switch ($order['status_order']) {
+                case 0 : $status = "Belum melakukan pembayaran"; break;
+                case 1 : $status = "Pesanan dikonfirmasi"; break;
+                case 2 : $status = "Pesanan ditolak"; break;
+            }
+
             $spreadsheet->getActiveSheet()->fromArray([
                 $order['id_order'], 
                 $order['nama'], 
+                $order['tanggal_lahir'], 
                 $order['alamat'], 
                 $order['jk'],
                 $order['jenis_identitas'],
@@ -97,9 +111,10 @@ class C_laporan extends CI_Controller {
                 $order['tanggal_naik'],
                 $order['tanggal_turun'],
                 $order['harga'],
+                $status,
                 $order['bukti_pembayaran']
             ], null, 'A'.$count);
-            $activeSheet->getStyle('F'.$count)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadSheet\Style\NumberFormat::FORMAT_NUMBER);
+            $activeSheet->getStyle('G'.$count)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadSheet\Style\NumberFormat::FORMAT_NUMBER);
             $count++;
         }
 

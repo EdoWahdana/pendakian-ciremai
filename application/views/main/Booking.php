@@ -22,7 +22,7 @@
                             echo "<tr>
                                     <td>".indonesian_date($data['tanggal'])."</td>
                                     <td>".indonesian_date(date("Y-m-d", strtotime($data['tanggal'].'+2 days')))."</td>
-                                    <td><a href='".base_url('c_home/order')."?tanggal=$data[tanggal]' class='btn btn-info btn-sm'>$data[kuota_tersisa]</a>
+                                    <td><a href='".base_url('c_home/order')."?tanggal=$data[tanggal]' class='btn btn-info btn-sm'>$data[kuota_tersisa] Tersisa </a>
                                 </tr>";
                         } else {
                             echo "<tr>

@@ -2,14 +2,14 @@
 <div class="container">
 <h2 class="text-center font-weight-bold">Laporan</h2>
     <hr>
-    <form action="<?= base_url('c_laporan/cetak_laporan') ?>">
+    <form action="<?= base_url('c_laporan/cetak_laporan') ?>" method="post">
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <label>Pilih bulan : </label>
                     <select name="bulan" id="bulan" class="form-control">
                         <?php foreach($bulan as $b) { ?>
-                            <option value="<?= $b ?>"><?= $daftarBulan[intval($b)] ?></option>
+                            <option value="<?= $b ?>"><?= $daftarBulan[intval($b) - 1] ?></option>
                         <?php } ?>
                     </select>
                 </div>
