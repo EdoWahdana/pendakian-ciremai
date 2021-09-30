@@ -27,6 +27,15 @@
             <h3 class="font-weight-bold"><?= $this->session->userdata('nama') ?></h3>
         </div>
         <div class="col-sm-4 offset-sm-1 my-1 text-right">
+            Tanggal Lahir
+        </div>
+        <div class="col-sm-2">
+            :
+        </div>
+        <div class="col-sm-4 text-left">
+            <h3 class="font-weight-bold"><?= $this->session->userdata('tanggal_lahir') ?></h3>
+        </div>
+        <div class="col-sm-4 offset-sm-1 my-1 text-right">
             Alamat
         </div>
         <div class="col-sm-2">

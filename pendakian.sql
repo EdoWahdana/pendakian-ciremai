@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2021 at 12:46 PM
+-- Generation Time: Sep 30, 2021 at 02:21 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.23
 
@@ -105,6 +105,7 @@ CREATE TABLE `tbl_customer` (
   `id_customer` int(11) NOT NULL,
   `id_order` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
+  `tanggal_lahir` date DEFAULT NULL,
   `alamat` text NOT NULL,
   `jk` enum('L','P') NOT NULL,
   `jenis_identitas` enum('KTP','KTM','SIM','KK','Passport') NOT NULL,
@@ -119,13 +120,14 @@ CREATE TABLE `tbl_customer` (
 -- Dumping data for table `tbl_customer`
 --
 
-INSERT INTO `tbl_customer` (`id_customer`, `id_order`, `nama`, `alamat`, `jk`, `jenis_identitas`, `no_identitas`, `no_handphone`, `email`, `password`, `foto_identitas`) VALUES
-(1, 11, 'AA', 'aaa', 'L', 'KTP', 'aaa', 'aaa', '0', '', ''),
-(2, 11, 'zz', 'zzzz', 'L', 'KTP', 'zzz', 'zz', '0', '', ''),
-(3, 0, 'Edo Wahdanna', 'lkjsdf.asf8sdf898s', 'L', 'KTP', '328234782347', '01923818238', 'edo@gmail.com', '$2y$10$0WqrrQsMedYGRqEVzZxFj.gUBU0lVWm6QZ7qIaJ3SwNirJbOG1a2a', ''),
-(4, 0, 'Edi Wahdini', 'Jl.dipati ewanggoy', 'L', 'KTM', '32109883918123', '0812383871', 'edi@gmail.com', '$2y$10$ZmwCty8PEnstWQVr8a5P6ehI9JDF56/QwKWMK7tRpA.kxVOhhoRf6', 'b7460f6929e836cf818fe8717f8b2716.png'),
-(5, 0, 'Coba coba', 'Jl. coba coba', 'L', 'KTP', '377123700123', '08123717233', 'coba@gmail.com', '$2y$10$Rau4I0Bfx7C6NaVLQsh65ubFYU3DCpNrn9KO6sZyXeimpxVaoIBJa', '3c802f41d14b389e6321e37a0a78b88f.png'),
-(6, 0, 'Siwana', 'Darma kuningan', 'L', 'KTM', '821727127', '0812373717', 'siwana@gmail.com', '$2y$10$8b6ZcTvwbqshOqT0hO3fJeu0YQ0XtOUwwTYpZdAOfJDbXXAu17j8m', 'e10ad432967c74e5e06c3c3c87a07725.png');
+INSERT INTO `tbl_customer` (`id_customer`, `id_order`, `nama`, `tanggal_lahir`, `alamat`, `jk`, `jenis_identitas`, `no_identitas`, `no_handphone`, `email`, `password`, `foto_identitas`) VALUES
+(1, 11, 'AA', NULL, 'aaa', 'L', 'KTP', 'aaa', 'aaa', '0', '', ''),
+(2, 11, 'zz', NULL, 'zzzz', 'L', 'KTP', 'zzz', 'zz', '0', '', ''),
+(3, 0, 'Edo Wahdanna', NULL, 'lkjsdf.asf8sdf898s', 'L', 'KTP', '328234782347', '01923818238', 'edo@gmail.com', '$2y$10$0WqrrQsMedYGRqEVzZxFj.gUBU0lVWm6QZ7qIaJ3SwNirJbOG1a2a', ''),
+(4, 0, 'Edi Wahdini', NULL, 'Jl.dipati ewanggoy', 'L', 'KTM', '32109883918123', '0812383871', 'edi@gmail.com', '$2y$10$ZmwCty8PEnstWQVr8a5P6ehI9JDF56/QwKWMK7tRpA.kxVOhhoRf6', 'b7460f6929e836cf818fe8717f8b2716.png'),
+(5, 0, 'Coba coba', NULL, 'Jl. coba coba', 'L', 'KTP', '377123700123', '08123717233', 'coba@gmail.com', '$2y$10$Rau4I0Bfx7C6NaVLQsh65ubFYU3DCpNrn9KO6sZyXeimpxVaoIBJa', '3c802f41d14b389e6321e37a0a78b88f.png'),
+(6, 0, 'Siwana', NULL, 'Darma kuningan', 'L', 'KTM', '821727127', '0812373717', 'siwana@gmail.com', '$2y$10$8b6ZcTvwbqshOqT0hO3fJeu0YQ0XtOUwwTYpZdAOfJDbXXAu17j8m', 'e10ad432967c74e5e06c3c3c87a07725.png'),
+(7, 0, 'Muhammad Abdi', '1996-09-05', 'Jl. Kramat Raya No.140', 'L', 'KTP', '238810355757018', '0812373717', 'abdi@gmail.com', '$2y$10$KsCn7EbLOrGMCjFEnfvCgOpqI3u.eAhiYJxpNM1iNXcturpEMiT6C', '048c15ad94c969a9e8ee44b56d17fb69.png');
 
 -- --------------------------------------------------------
 
@@ -144,7 +146,7 @@ CREATE TABLE `tbl_interface` (
 --
 
 INSERT INTO `tbl_interface` (`id_interface`, `tentang`, `gambar`) VALUES
-(1, 'Gunung Ceremai (sering kali secara salah kaprah dinamakan \"Ciremai\") (Latin: Gunung Ceremé) adalah gunung berapi kerucut yang secara administratif termasuk dalam wilayah dua kabupaten, yakni Kabupaten Kuningan dan Kabupaten Majalengka, Provinsi Jawa Barat. Posisi geografis puncaknya terletak pada 6° 53\' 30\" LS dan 108° 24\' 00\" BT, dengan ketinggian 3.078 m di atas permukaan laut. Gunung ini merupakan gunung tertinggi di Jawa Barat.', '35dac5824ac8ab4a6bae1b03cea8f912.jpg');
+(1, 'Gunung Ceremai (sering kali secara salah kaprah dinamakan \"Ciremai\") (Latin: Gunung Ceremé) adalah gunung berapi kerucut yang secara administratif termasuk dalam wilayah dua kabupaten, yakni Kabupaten Kuningan dan Kabupaten Majalengka, Provinsi Jawa Barat. Posisi geografis puncaknya terletak pada 6° 53\' 30\" LS dan 108° 24\' 00\" BT, dengan ketinggian 3.078 m di atas permukaan laut. Gunung ini merupakan gunung tertinggi di Jawa Barat.', 'be77d9db0dfd2682f00bfefe3d1419f9.png');
 
 -- --------------------------------------------------------
 
@@ -400,7 +402,7 @@ ALTER TABLE `tbl_chat`
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
-  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_interface`

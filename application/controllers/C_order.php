@@ -41,9 +41,10 @@ class C_order extends CI_Controller {
 
     public function daftar_pendaki() 
     {        
+        // Masukkan refference ID Customer saja
+        $id_customer = $this->input->post('id_customer');
         $tanggal_naik = $this->input->post('tanggal_naik');
         $tanggal_turun = $this->input->post('tanggal_turun');
-        $id_customer = $this->input->post('id_customer');
 
         // Status order
         // 0 = Pending
@@ -86,7 +87,8 @@ class C_order extends CI_Controller {
         }
     }
 
-    public function status() {
+    public function status() 
+    {
         $kode_order = $this->input->get('order');
 
         $data['title'] = "Status Booking | Ciremai";

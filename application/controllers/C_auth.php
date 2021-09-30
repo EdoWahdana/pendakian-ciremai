@@ -14,6 +14,7 @@ class C_auth extends CI_Controller {
     {
         $id = $this->input->post('id');
         $nama = $this->input->post('nama');
+        $tanggal_lahir = $this->input->post('tanggal_lahir');
         $alamat = $this->input->post('alamat');
         $jenis_identitas = $this->input->post('jenis_identitas');
         $no_identitas = $this->input->post('no_identitas');
@@ -28,6 +29,7 @@ class C_auth extends CI_Controller {
         $data = [
             'id_customer' => $id,
             'nama' => $nama,
+            'tanggal_lahir' => $tanggal_lahir,
             'alamat' => $alamat,
             'jenis_identitas' => $jenis_identitas,
             'no_identitas' => $no_identitas,
@@ -40,8 +42,8 @@ class C_auth extends CI_Controller {
 
         if($affected_row == TRUE) {
             $this->session->set_flashdata('message', '<div class="alert alert-success">Akun pendaki berhasil diupdate. Silahkan Login kembali!</div>');
-            $this->session->sess_destroy();
             redirect('c_home/login');
+            $this->session->sess_destroy();
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger">Akun pendaki GAGAL diupdate. Silahkan Coba Lagi!</div>');
             redirect('c_home/profil');
@@ -54,6 +56,7 @@ class C_auth extends CI_Controller {
         $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
 
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim');
+        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
         $this->form_validation->set_rules('jenis_identitas', 'Jenis Identitas', 'required');
@@ -71,6 +74,7 @@ class C_auth extends CI_Controller {
             $this->load->view('main/template/end');
         } else {
             $nama = $this->input->post('nama');
+            $tanggal_lahir = $this->input->post('tanggal_lahir');
             $alamat = $this->input->post('alamat');
             $jk = $this->input->post('jk');
             $jenis_identitas = $this->input->post('jenis_identitas');
@@ -83,6 +87,7 @@ class C_auth extends CI_Controller {
 
             $data = [
                 'nama' => $nama,
+                'tanggal_lahir' => $tanggal_lahir,
                 'alamat' => $alamat,
                 'jk' => $jk,
                 'jenis_identitas' => $jenis_identitas,
@@ -130,6 +135,7 @@ class C_auth extends CI_Controller {
                     $session_data = [
                         'id' => $customer['id_customer'],
                         'nama' => $customer['nama'],
+                        'tanggal_lahir' => $customer['tanggal_lahir'],
                         'alamat' => $customer['alamat'],
                         'jk' => $customer['jk'],
                         'jenis_identitas' => $customer['jenis_identitas'],
@@ -138,7 +144,6 @@ class C_auth extends CI_Controller {
                         'email' => $customer['email'],
                         'foto_identitas' => $customer['foto_identitas']
                     ];
-                    
                     $this->session->set_userdata($session_data);
                     redirect('c_home');
                 } else {

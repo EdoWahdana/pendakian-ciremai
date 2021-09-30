@@ -11,6 +11,11 @@
                         <?= form_error('nama'); ?>
                     </div>
                     <div class="col-md-12">
+                        <label>Tanggal Lahir</label>
+                        <input class="form-control" type="date" name="tanggal_lahir" min="<?= date('Y-m-d', strtotime(date('Y-m-d') . "-50 year")) ?>" max="<?= date('Y-m-d', strtotime(date('Y-m-d') . "-17 year")) ?>">
+                        <?= form_error('tanggal_lahir'); ?>
+                    </div>
+                    <div class="col-md-12">
                         <label>Alamat</label>
                         <textarea id="alamat" name="alamat" class="form-control" rows="3"></textarea>
                         <?= form_error('alamat'); ?>

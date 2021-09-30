@@ -60,6 +60,15 @@
                         <p class="font-weight-bold"><?= $order[0]['nama'] ?></p>
                     </div>
                     <div class="col-sm-4 offset-sm-1 my-1 text-right">
+                        Tanggal Lahir
+                    </div>
+                    <div class="col-sm-2">
+                        :
+                    </div>
+                    <div class="col-sm-4 text-left">
+                        <p class="font-weight-bold"><?= $order[0]['tanggal_lahir'] ?></p>
+                    </div>
+                    <div class="col-sm-4 offset-sm-1 my-1 text-right">
                         Alamat
                     </div>
                     <div class="col-sm-2">

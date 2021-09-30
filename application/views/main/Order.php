@@ -39,6 +39,14 @@
     </div>
     <div class="form-group">
         <div class="row">
+            <label class="col-sm-2 offset-sm-3 control-label">Tanggal Lahir</label>
+            <div class="col-sm-4">
+                <input readonly type="text" id="tanggal_lahir" name="tanggal_lahir" class="form-control" value="<?= $this->session->userdata('tanggal_lahir') ?>">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="row">
             <label class="col-sm-2 offset-sm-3 control-label">Alamat</label>
             <div class="col-sm-4">
                 <textarea readonly name="alamat" id="alamat" cols="47"> <?= $this->session->userdata('alamat') ?> </textarea>

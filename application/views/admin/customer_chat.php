@@ -132,7 +132,7 @@ button {
             <form action="<?= base_url('c_chat/admin_chat') ?>" method="post">
                 <div class="chat-form"> 
                     <input type="hidden" name="id_customer" value="<?= $_GET['id_customer'] ?>">
-                    <input type="hidden" name="id_admin" value="<?= $_SESSION['id'] ?>">
+                    <input type="hidden" name="id_admin" value="<?= $_SESSION['id_admin'] ?>">
                     <div class="form-group px-3"> <textarea class="form-control" name="pesan" rows="2" placeholder="Tulis pesan anda..."></textarea> </div>
                     <button type="submit" id="send-chat" class="btn btn-success btn-block">Kirim Pesan</button> 
                 </div>

@@ -25,6 +25,15 @@
             <input class="form-control" type="text" name="nama" id="nama" value="<?= $this->session->userdata('nama') ?>">
         </div>
         <div class="col-sm-4 offset-sm-1 my-1 text-right">
+            Tanggal Lahir
+        </div>
+        <div class="col-sm-2">
+            :
+        </div>
+        <div class="col-sm-4 text-left">
+            <input class="form-control" type="date" name="tanggal_lahir" id="tanggal_lahir" value="<?= $this->session->userdata('tanggal_lahir') ?>">
+        </div>
+        <div class="col-sm-4 offset-sm-1 my-1 text-right">
             Alamat
         </div>
         <div class="col-sm-2">
