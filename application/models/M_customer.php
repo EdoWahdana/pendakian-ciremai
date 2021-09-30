@@ -5,7 +5,7 @@ class M_customer extends CI_Model {
 
     public function delete_customer_by_id($id)
     {
-        $this->db->where('id', $id);
+        $this->db->where('id_customer', $id);
         return $this->db->delete('tbl_customer');
     }
 
