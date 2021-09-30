@@ -4,7 +4,7 @@
             <div class="container">
                <div class="copyright">
                   <div class="container">
-                     <p>Copyright 2019 All Right Reserved By Me</a></p>
+                     <p>Ciremai 2021</a></p>
                   </div>
                </div>
             </div>

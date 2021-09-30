@@ -2,7 +2,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span><b>Edo Ganteng <i class="fas fa-xs fa-copyright"></i></b> 2019</span>
+            <span><b>Ciremai <i class="fas fa-xs fa-copyright"></i></b> 2021</span>
           </div>
         </div>
       </footer>
