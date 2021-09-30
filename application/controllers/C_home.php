@@ -117,7 +117,6 @@ class C_home extends CI_Controller {
 		$this->load->view('main/template/header', $data);
 		$this->load->view('main/template/navbar');
 		$this->load->view('main/Pesanan', $data);
-		$this->load->view('main/template/footer', $data);
 		$this->load->view('main/template/end');
 	}
 

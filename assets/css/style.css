@@ -2130,6 +2130,7 @@ label {
 .footer {
      background-color: #022739;
      margin-top: 90px;
+     position: fixed;
 }
 .footer .Follow {
      margin-bottom: 27px;
