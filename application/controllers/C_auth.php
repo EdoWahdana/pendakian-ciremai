@@ -53,24 +53,26 @@ class C_auth extends CI_Controller {
 
     public function register() 
     {
-        $this->form_validation->set_error_delimiters('<small class="text-danger pl-2">', '</small>');
+        $this->form_validation->set_error_delimiters('<small class="text-danger pl-2 pb-2">', '</small>');
 
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim');
         $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required|trim');
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
         $this->form_validation->set_rules('jenis_identitas', 'Jenis Identitas', 'required');
-        $this->form_validation->set_rules('no_identitas', 'Nomer Identitas', 'required|trim|numeric');
-        $this->form_validation->set_rules('no_handphone', 'No Handphone', 'required|numeric');
+        $this->form_validation->set_rules('no_identitas', 'Nomer Identitas', 'required|trim|numeric', ['numeric' => 'No Identitas hanya dapat berisi angka']);
+        $this->form_validation->set_rules('no_handphone', 'No Handphone', 'required|numeric', ['numeric' => 'No Handphone hanya dapat berisi angka']);
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbl_customer.email]');
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[5]');
 
         if($this->form_validation->run() == FALSE) {
             $data['title'] = "Register Pendaki | Ciremai";
 
+            $this->session->set_flashdata('message', '<div class="alert alert-danger">Kesalahan data form registrasi. Silahkan ulangi!</div>');
+
             $this->load->view('main/template/header', $data);
             $this->load->view('main/template/navbar');
-            $this->load->view('main/Register');
+            $this->load->view('main/Register', );
             $this->load->view('main/template/end');
         } else {
             $nama = $this->input->post('nama');

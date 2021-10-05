@@ -7,17 +7,17 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label>Nama</label>
-                        <input class="form-control" type="text" name="nama">
+                        <input class="form-control" type="text" name="nama" value="<?= set_value('nama') ?>">
                         <?= form_error('nama'); ?>
                     </div>
                     <div class="col-md-12">
                         <label>Tanggal Lahir</label>
-                        <input class="form-control" type="date" name="tanggal_lahir" min="<?= date('Y-m-d', strtotime(date('Y-m-d') . "-50 year")) ?>" max="<?= date('Y-m-d', strtotime(date('Y-m-d') . "-17 year")) ?>">
+                        <input class="form-control" type="date" name="tanggal_lahir" value="<?= set_value('tanggal_lahir') ?>" min="<?= date('Y-m-d', strtotime(date('Y-m-d') . "-50 year")) ?>" max="<?= date('Y-m-d', strtotime(date('Y-m-d') . "-17 year")) ?>">
                         <?= form_error('tanggal_lahir'); ?>
                     </div>
                     <div class="col-md-12">
                         <label>Alamat</label>
-                        <textarea id="alamat" name="alamat" class="form-control" rows="3"></textarea>
+                        <textarea id="alamat" name="alamat" class="form-control" rows="3"><?= set_value('alamat') ?></textarea>
                         <?= form_error('alamat'); ?>
                     </div>  
                     <div class="col-md-12">
@@ -41,17 +41,17 @@
                     </div>
                     <div class="col-md-12">
                         <label>No Identitas</label>
-                        <input type="text" class="form-control" name="no_identitas" id="no_identitas">
+                        <input type="text" class="form-control" name="no_identitas" id="no_identitas" value="<?= set_value('no_identitas') ?>">
                         <?= form_error('no_identitas'); ?>
                     </div>
                     <div class="col-md-12">
                         <label>No Handphone</label>
-                        <input type="text" class="form-control" name="no_handphone" id="no_handphone">
+                        <input type="text" class="form-control" name="no_handphone" id="no_handphone" value="<?= set_value('no_handphone') ?>">
                         <?= form_error('no_handphone'); ?>
                     </div>
                     <div class="col-md-12">
                         <label>Email</label>
-                        <input type="text" class="form-control" name="email" id="email">
+                        <input type="text" class="form-control" name="email" id="email" value="<?= set_value('email') ?>">
                         <?= form_error('email'); ?>
                     </div>
                     <div class="col-md-12">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-md-12">
                         <label>Foto Identitas</label>
-                        <input type="file" class="form-control" name="foto_identitas" id="foto_identitas">
+                        <input type="file" class="form-control" name="foto_identitas" id="foto_identitas" required>
                         <?= form_error('foto_identitas'); ?>
                     </div> <br>
                     <div class="col-md-12 mt-3">

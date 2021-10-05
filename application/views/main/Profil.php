@@ -20,7 +20,7 @@
         <div class="col-sm-4 offset-sm-1 my-1 text-right">
             Nama
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1 text-center">
             :
         </div>
         <div class="col-sm-4 text-left">
@@ -29,7 +29,7 @@
         <div class="col-sm-4 offset-sm-1 my-1 text-right">
             Tanggal Lahir
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1 text-center">
             :
         </div>
         <div class="col-sm-4 text-left">
@@ -38,7 +38,7 @@
         <div class="col-sm-4 offset-sm-1 my-1 text-right">
             Alamat
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1 text-center">
             :
         </div>
         <div class="col-sm-4 text-left">
@@ -47,7 +47,7 @@
         <div class="col-sm-4 offset-sm-1 my-1 text-right">
             Jenis Identitas
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1 text-center">
             :
         </div>
         <div class="col-sm-4 text-left">
@@ -56,7 +56,7 @@
         <div class="col-sm-4 offset-sm-1 my-1 text-right">
             No. Identitas
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1 text-center">
             :
         </div>
         <div class="col-sm-4 text-left">
@@ -65,7 +65,7 @@
         <div class="col-sm-4 offset-sm-1 my-1 text-right">
             No. Handphone
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1 text-center">
             :
         </div>
         <div class="col-sm-4 text-left">
@@ -74,7 +74,7 @@
         <div class="col-sm-4 offset-sm-1 my-1 text-right">
             Email
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1 text-center">
             :
         </div>
         <div class="col-sm-4 text-left">
@@ -83,7 +83,7 @@
         <div class="col-sm-4 offset-sm-1 my-1 text-right">
             Foto Identitas
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-1 text-center">
             :
         </div>
         <div class="col-sm-4 text-left">
