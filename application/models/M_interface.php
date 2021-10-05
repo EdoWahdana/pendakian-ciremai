@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_interface extends CI_Model { 
 
+	public function get_interface()
+	{
+		return $this->db->get('tbl_interface');
+	}
+
 	public function get_interface_aturan()
     {
 		$this->db->where('id_interface', 2);

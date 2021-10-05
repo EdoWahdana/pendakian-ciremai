@@ -11,6 +11,7 @@ class C_home extends CI_Controller {
 		$this->load->model('m_chat');
 		$this->load->model('m_customer');
 		$this->load->model('m_interface');
+		$this->load->model('m_pos');
 		$this->load->helper('date');
 		$this->load->helper('indonesian_date');
 		$this->load->library('form_validation');
