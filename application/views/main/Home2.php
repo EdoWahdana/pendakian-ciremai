@@ -1,3 +1,11 @@
+<style>
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+</style>
+
 <section>
     <div class="banner-main">
     <img src="<?= base_url('assets/images/banner/') . $interface[0]['gambar'] ?>" alt="#"/>
@@ -63,7 +71,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center">
-                    <img src="<?= base_url('assets/') ?>icon/travel-icon2.png" alt="images">
+                    <img src="<?= base_url('assets/images/banner/') . $interface[1]['gambar'] ?>" class="img-fluid img-thumbnail" alt="images" width="700px">
                   </div>
                </div>
             </div>
@@ -77,51 +85,31 @@
         <div class="col-md-12 ">
             <div class="titlepage">
                 <h2>Peraturan Pendakian</h2>
-                <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</span> 
+                <span class="text-justify"><pre><?= $interface[1]['tentang'] ?></pre></span>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-            <div class="traveling-box">
-                <i><img src="<?= base_url('assets/') ?>icon/travel-icon.png" alt="icon"/></i>
-                <h3>Different Countrys</h3>
-                <p> going to use a passage of Lorem Ipsum, you need to be </p>
-                <div class="read-more">
-                <a  href="#">Read More</a>
-                </div>
-            </div>
+	
+	<div class="titlepage">
+		<h2>Pos Pendakian</h2>
+	</div>
+	</div>
+	
+	<div class="container-fluid">
+    <div class="row ml-4">
+		<?php foreach ($pos as $p) { ?>
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 my-2 mx-auto">
+			<div class="card" style="width: 18rem;">
+			  <img src="<?= base_url('assets/images/pos/') . $p['gambar'] ?>" class="img-fluid card-img-top" alt="icon" />
+			  <div class="card-body">
+				<h3 class="card-title text-center font-weight-bold" style="margin: 0;">Pos <?= $p['id_pos'] ?> </h3>
+				<p class="card-text"><?= (strlen($p['deskripsi']) > 60) ? substr($p['deskripsi'], 0, 60)."..." : $p['deskripsi'] ?></p>
+				
+				<a href="#" class="card-link">Selengkapnya</a>
+			  </div>
+			</div>
         </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-            <div class="traveling-box">
-                <i><img src="<?= base_url('assets/') ?>icon/travel-icon2.png" alt="icon"/></i>
-                <h3>Mountains Tours</h3>
-                <p> going to use a passage of Lorem Ipsum, you need to be </p>
-                <div class="read-more">
-                <a  href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-            <div class="traveling-box">
-                <i><img src="<?= base_url('assets/') ?>icon/travel-icon3.png" alt="icon"/></i>
-                <h3>Bus Tours</h3>
-                <p> going to use a passage of Lorem Ipsum, you need to be </p>
-                <div class="read-more">
-                <a  href="#">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-            <div class="traveling-box">
-                <i><img src="<?= base_url('assets/') ?>icon/travel-icon4.png" alt="icon"/></i>
-                <h3>Summer Rest</h3>
-                <p> going to use a passage of Lorem Ipsum, you need to be </p>
-                <div class="read-more">
-                <a  href="#">Read More</a>
-                </div>
-            </div>
-        </div>
+		<?php } ?>
     </div>
     </div>
 </div>

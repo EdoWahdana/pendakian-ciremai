@@ -26,6 +26,9 @@ class C_home extends CI_Controller {
 		
 		//Ambil data banner aktif dan kirim ke view
 		$data['interface'] = $this->m_interface->get_interface()->result_array();
+		
+		//Ambil data pos dan kirim ke homepage
+		$data['pos'] = $this->m_pos->get_all_pos()->result_array();
 
 		$this->load->view('main/template/header', $data);
 		$this->load->view('main/template/navbar');
