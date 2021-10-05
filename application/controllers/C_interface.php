@@ -12,27 +12,32 @@ class C_interface extends CI_Controller {
 	public function update_aturan()
 	{
 		$aturan = $this->input->post('aturan');
+		
+		if(!empty($_FILES['gambar']['name']))
+            $gambar_aturan = $this->upload_gambar();
+		
 		$data = [
-			'tentang' => $aturan
+			'tentang' => $aturan,
+			'gambar' => $gambar_aturan
 		];
 		
 		if($this->m_interface->set_interface_aturan($data) != FALSE) {
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Update aturan pendakian berhasil.</div>');
+            $this->session->set_flashdata('message_aturan', '<div class="alert alert-success text-center">Update aturan pendakian berhasil.</div>');
             redirect('c_dashboard/interface_aturan');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
+            $this->session->set_flashdata('message_aturan', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
             redirect('c_dashboard/interface_aturan');
         }
 	}
 
-    public function update_gambar()
+    public function update_gambar_tentang()
     {
         $gambar = $this->upload_gambar();
         $data = [
             'gambar' => $gambar
         ];
 
-        if($this->m_interface->set_interface($data) != FALSE) {
+        if($this->m_interface->set_interface_tentang($data) != FALSE) {
             $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Update gambar banner berhasil.</div>');
             redirect('c_dashboard/interface_gambar');
         } else {
@@ -49,7 +54,7 @@ class C_interface extends CI_Controller {
             'tentang' => $tentang
         ];
 
-        if($this->m_interface->set_interface($data) != FALSE) {
+        if($this->m_interface->set_interface_tentang($data) != FALSE) {
             $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Update info berhail.</div>');
             redirect('c_dashboard/interface_tentang');
         } else {

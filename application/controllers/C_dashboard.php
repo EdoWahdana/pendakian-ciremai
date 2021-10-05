@@ -214,7 +214,7 @@ class C_dashboard extends CI_Controller {
         $data['submenu'] = $this->submenu;
         $data['aktif'] = 'Interface';
 
-        $data['interface'] = $this->m_interface->get_interface_aturan()->result_array();
+        $data['interface'] = $this->m_interface->get_interface_tentang()->result_array();
 
         $this->load->view('admin/template/header', $data);
         $this->load->view('admin/template/navbar');
