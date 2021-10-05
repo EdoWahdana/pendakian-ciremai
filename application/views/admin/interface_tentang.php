@@ -3,7 +3,7 @@
     <hr>
     <?= $this->session->flashdata('message') ?>
 
-    <p class="text-justify mb-3"><?= $interface[0]['tentang'] ?> </p>
+    <p class="text-justify mb-3"><?= $tentang[0]['tentang'] ?> </p>
     <hr>
 
     <form action="<?= base_url('c_interface/update_tentang') ?>" method="post">

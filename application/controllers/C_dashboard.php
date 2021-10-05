@@ -199,12 +199,12 @@ class C_dashboard extends CI_Controller {
         $data['submenu'] = $this->submenu;
         $data['aktif'] = 'Interface';
 
-        $data['interface'] = $this->m_interface->get_interface()->result_array();
+        $data['aturan'] = $this->m_interface->get_interface_aturan()->result_array();
 
         $this->load->view('admin/template/header', $data);
         $this->load->view('admin/template/navbar');
         $this->load->view('admin/template/sidebar', $data);
-        $this->load->view('admin/interface_tentang', $data);
+        $this->load->view('admin/interface_aturan', $data);
         $this->load->view('admin/template/footer', $data);
    }
 
@@ -229,7 +229,7 @@ class C_dashboard extends CI_Controller {
         $data['submenu'] = $this->submenu;
         $data['aktif'] = 'Interface';
 
-        $data['interface'] = $this->m_interface->get_interface_tentang()->result_array();
+        $data['tentang'] = $this->m_interface->get_interface_tentang()->result_array();
 
         $this->load->view('admin/template/header', $data);
         $this->load->view('admin/template/navbar');

@@ -8,6 +8,22 @@ class C_interface extends CI_Controller {
         parent::__construct();
         $this->load->model('m_interface');
     }
+	
+	public function update_aturan()
+	{
+		$aturan = $this->input->post('aturan');
+		$data = [
+			'tentang' => $aturan
+		];
+		
+		if($this->m_interface->set_interface_aturan($data) != FALSE) {
+            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Update aturan pendakian berhasil.</div>');
+            redirect('c_dashboard/interface_aturan');
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
+            redirect('c_dashboard/interface_aturan');
+        }
+	}
 
     public function update_gambar()
     {
@@ -40,11 +56,6 @@ class C_interface extends CI_Controller {
             $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Terjadi kesalahan.</div>');
             redirect('c_dashboard/interface_tentang');
         }
-    }
-
-    public function update_service()
-    {
-
     }
 
     public function upload_gambar() 
