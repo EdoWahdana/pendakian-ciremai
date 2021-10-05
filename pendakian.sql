@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2021 at 02:21 PM
+-- Generation Time: Oct 03, 2021 at 12:50 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.23
 
@@ -93,7 +93,8 @@ INSERT INTO `tbl_chat` (`id_chat`, `id_admin`, `id_customer`, `pesan`, `timestam
 (8, 2, 3, 'Admin', '2021-09-22 07:47:34', 0),
 (9, 0, 3, 'Ini user', '2021-09-24 10:46:37', 0),
 (10, 0, 3, 'ini user 2', '2021-09-24 10:50:51', 0),
-(11, 0, 3, 'Ini user 3', '2021-09-24 10:51:40', 0);
+(11, 0, 3, 'Ini user 3', '2021-09-24 10:51:40', 0),
+(12, 0, 7, 'Hai admin', '2021-09-30 13:31:56', 0);
 
 -- --------------------------------------------------------
 
@@ -121,8 +122,6 @@ CREATE TABLE `tbl_customer` (
 --
 
 INSERT INTO `tbl_customer` (`id_customer`, `id_order`, `nama`, `tanggal_lahir`, `alamat`, `jk`, `jenis_identitas`, `no_identitas`, `no_handphone`, `email`, `password`, `foto_identitas`) VALUES
-(1, 11, 'AA', NULL, 'aaa', 'L', 'KTP', 'aaa', 'aaa', '0', '', ''),
-(2, 11, 'zz', NULL, 'zzzz', 'L', 'KTP', 'zzz', 'zz', '0', '', ''),
 (3, 0, 'Edo Wahdanna', NULL, 'lkjsdf.asf8sdf898s', 'L', 'KTP', '328234782347', '01923818238', 'edo@gmail.com', '$2y$10$0WqrrQsMedYGRqEVzZxFj.gUBU0lVWm6QZ7qIaJ3SwNirJbOG1a2a', ''),
 (4, 0, 'Edi Wahdini', NULL, 'Jl.dipati ewanggoy', 'L', 'KTM', '32109883918123', '0812383871', 'edi@gmail.com', '$2y$10$ZmwCty8PEnstWQVr8a5P6ehI9JDF56/QwKWMK7tRpA.kxVOhhoRf6', 'b7460f6929e836cf818fe8717f8b2716.png'),
 (5, 0, 'Coba coba', NULL, 'Jl. coba coba', 'L', 'KTP', '377123700123', '08123717233', 'coba@gmail.com', '$2y$10$Rau4I0Bfx7C6NaVLQsh65ubFYU3DCpNrn9KO6sZyXeimpxVaoIBJa', '3c802f41d14b389e6321e37a0a78b88f.png'),
@@ -168,7 +167,9 @@ CREATE TABLE `tbl_kuota` (
 
 INSERT INTO `tbl_kuota` (`id_kuota`, `kuota_tersisa`, `tanggal`, `bulan`, `tahun`) VALUES
 (2, 63, '2021-06-17', '06', '2021'),
-(3, 19, '2021-06-18', '06', '2021');
+(3, 19, '2021-06-18', '06', '2021'),
+(4, 19, '2021-09-01', '09', '2021'),
+(5, 9, '2021-12-10', '12', '2021');
 
 -- --------------------------------------------------------
 
@@ -192,9 +193,9 @@ CREATE TABLE `tbl_menu_admin` (
 INSERT INTO `tbl_menu_admin` (`id_menu`, `nama_menu`, `icon_menu`, `url_menu`, `is_sub_menu`, `is_active`) VALUES
 (1, 'Menu Management', 'fa fa-folder', 'c_dashboard/menu_management', 0, 1),
 (3, 'Kuota', 'fa fa-user', 'c_dashboard/kuota', 0, 1),
-(4, 'Order', 'fa fa-pen', 'c_dashboard/order', 0, 1),
+(4, 'Order', 'fa fa-first-order', 'c_dashboard/order', 0, 1),
 (5, 'User', 'fa fa-user', 'c_dashboard/user', 0, 1),
-(6, 'Laporan', 'fa fa-pen', 'c_dashboard/laporan', 0, 1),
+(6, 'Laporan', 'fa fa-bar-chart', 'c_dashboard/laporan', 0, 1),
 (7, 'Pesan', 'fa fa-comment', 'c_dashboard/chat', 0, 1),
 (8, 'Interface', 'fa fa-certificate', '#', 1, 1);
 
@@ -227,7 +228,9 @@ INSERT INTO `tbl_order` (`id_order`, `id_customer`, `kode_order`, `tanggal_naik`
 (13, 3, 'CRM-67480391', '2021-06-17', '2021-06-19', '0', 0, '3ba90852fcbec32c0e0ccb7aff2ff318.jpg'),
 (16, 3, 'CRM-99699767', '2021-06-17', '2021-06-19', '0', 0, ''),
 (17, 3, 'CRM-89348849', '2021-06-17', '2021-06-19', '0', 0, ''),
-(18, 6, 'CRM-92577479', '2021-06-18', '2021-06-20', '1', 0, '23a3070c3e63a349be4d7b8752f21846.png');
+(18, 6, 'CRM-92577479', '2021-06-18', '2021-06-20', '1', 0, '23a3070c3e63a349be4d7b8752f21846.png'),
+(19, 7, 'CRM-11299777', '2021-09-01', '2021-09-03', '0', 50000, ''),
+(20, 3, 'CRM-90921220', '2021-12-10', '2021-12-12', '1', 50000, 'e65d9a228e3c9a0dfe8ba7ceae724bad.png');
 
 -- --------------------------------------------------------
 
@@ -287,6 +290,7 @@ CREATE TABLE `v_chat` (
 CREATE TABLE `v_order` (
 `id_order` int(11)
 ,`nama` varchar(100)
+,`tanggal_lahir` date
 ,`alamat` text
 ,`jk` enum('L','P')
 ,`jenis_identitas` enum('KTP','KTM','SIM','KK','Passport')
@@ -297,6 +301,7 @@ CREATE TABLE `v_order` (
 ,`tanggal_naik` varchar(50)
 ,`tanggal_turun` varchar(50)
 ,`harga` int(11)
+,`status_order` char(1)
 ,`bukti_pembayaran` varchar(100)
 );
 
@@ -316,7 +321,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `v_order`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_order`  AS SELECT `o`.`id_order` AS `id_order`, `c`.`nama` AS `nama`, `c`.`alamat` AS `alamat`, `c`.`jk` AS `jk`, `c`.`jenis_identitas` AS `jenis_identitas`, `c`.`no_identitas` AS `no_identitas`, `c`.`no_handphone` AS `no_handphone`, `c`.`email` AS `email`, `o`.`kode_order` AS `kode_order`, `o`.`tanggal_naik` AS `tanggal_naik`, `o`.`tanggal_turun` AS `tanggal_turun`, `o`.`harga` AS `harga`, `o`.`bukti_pembayaran` AS `bukti_pembayaran` FROM (`tbl_order` `o` join `tbl_customer` `c` on(`o`.`id_customer` = `c`.`id_customer`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_order`  AS SELECT `o`.`id_order` AS `id_order`, `c`.`nama` AS `nama`, `c`.`tanggal_lahir` AS `tanggal_lahir`, `c`.`alamat` AS `alamat`, `c`.`jk` AS `jk`, `c`.`jenis_identitas` AS `jenis_identitas`, `c`.`no_identitas` AS `no_identitas`, `c`.`no_handphone` AS `no_handphone`, `c`.`email` AS `email`, `o`.`kode_order` AS `kode_order`, `o`.`tanggal_naik` AS `tanggal_naik`, `o`.`tanggal_turun` AS `tanggal_turun`, `o`.`harga` AS `harga`, `o`.`status_order` AS `status_order`, `o`.`bukti_pembayaran` AS `bukti_pembayaran` FROM (`tbl_order` `o` join `tbl_customer` `c` on(`o`.`id_customer` = `c`.`id_customer`)) ;
 
 --
 -- Indexes for dumped tables
@@ -396,7 +401,7 @@ ALTER TABLE `tbl_banner`
 -- AUTO_INCREMENT for table `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
-  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tbl_customer`
@@ -414,7 +419,7 @@ ALTER TABLE `tbl_interface`
 -- AUTO_INCREMENT for table `tbl_kuota`
 --
 ALTER TABLE `tbl_kuota`
-  MODIFY `id_kuota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kuota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_menu_admin`
@@ -426,7 +431,7 @@ ALTER TABLE `tbl_menu_admin`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tbl_sub_menu`

@@ -60,8 +60,8 @@ class C_auth extends CI_Controller {
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
         $this->form_validation->set_rules('jk', 'Jenis Kelamin', 'required');
         $this->form_validation->set_rules('jenis_identitas', 'Jenis Identitas', 'required');
-        $this->form_validation->set_rules('no_identitas', 'Nomer Identitas', 'required|trim');
-        $this->form_validation->set_rules('no_handphone', 'No Handphone', 'required');
+        $this->form_validation->set_rules('no_identitas', 'Nomer Identitas', 'required|trim|numeric');
+        $this->form_validation->set_rules('no_handphone', 'No Handphone', 'required|numeric');
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[tbl_customer.email]');
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[5]');
 
