@@ -17,6 +17,7 @@ class C_dashboard extends CI_Controller {
         $this->load->model('m_customer');
         $this->load->model('m_chat');
         $this->load->model('m_interface');
+		$this->load->model('m_pos');
 
         //Mengecek session
         if($this->session->userdata('status') != 'login'){
@@ -192,22 +193,7 @@ class C_dashboard extends CI_Controller {
         $this->load->view('admin/template/footer', $data);
    }
 
-   public function interface_gambar()
-   {
-        $data['menu'] = $this->menu;
-        $data['submenu'] = $this->submenu;
-        $data['aktif'] = 'Interface';
-
-        $data['interface'] = $this->m_interface->get_interface()->result_array();
-
-        $this->load->view('admin/template/header', $data);
-        $this->load->view('admin/template/navbar');
-        $this->load->view('admin/template/sidebar', $data);
-        $this->load->view('admin/interface_gambar', $data);
-        $this->load->view('admin/template/footer', $data);
-   }
-
-   public function interface_tentang()
+	public function interface_aturan()
    {
         $data['menu'] = $this->menu;
         $data['submenu'] = $this->submenu;
@@ -222,4 +208,48 @@ class C_dashboard extends CI_Controller {
         $this->load->view('admin/template/footer', $data);
    }
 
+   public function interface_gambar()
+   {
+        $data['menu'] = $this->menu;
+        $data['submenu'] = $this->submenu;
+        $data['aktif'] = 'Interface';
+
+        $data['interface'] = $this->m_interface->get_interface_aturan()->result_array();
+
+        $this->load->view('admin/template/header', $data);
+        $this->load->view('admin/template/navbar');
+        $this->load->view('admin/template/sidebar', $data);
+        $this->load->view('admin/interface_gambar', $data);
+        $this->load->view('admin/template/footer', $data);
+   }
+
+   public function interface_tentang()
+   {
+        $data['menu'] = $this->menu;
+        $data['submenu'] = $this->submenu;
+        $data['aktif'] = 'Interface';
+
+        $data['interface'] = $this->m_interface->get_interface_tentang()->result_array();
+
+        $this->load->view('admin/template/header', $data);
+        $this->load->view('admin/template/navbar');
+        $this->load->view('admin/template/sidebar', $data);
+        $this->load->view('admin/interface_tentang', $data);
+        $this->load->view('admin/template/footer', $data);
+   }
+
+	public function interface_pos() 
+	{
+		$data['menu'] = $this->menu;
+        $data['submenu'] = $this->submenu;
+        $data['aktif'] = 'Interface';
+		
+		$data['pos'] = $this->m_pos->get_all_pos()->result_array();
+		
+		$this->load->view('admin/template/header', $data);
+        $this->load->view('admin/template/navbar');
+        $this->load->view('admin/template/sidebar', $data);
+        $this->load->view('admin/interface_pos', $data);
+        $this->load->view('admin/template/footer', $data);
+	}
 }
