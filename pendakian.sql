@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2021 at 12:50 PM
+-- Generation Time: Oct 05, 2021 at 08:18 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.23
 
@@ -145,7 +145,8 @@ CREATE TABLE `tbl_interface` (
 --
 
 INSERT INTO `tbl_interface` (`id_interface`, `tentang`, `gambar`) VALUES
-(1, 'Gunung Ceremai (sering kali secara salah kaprah dinamakan \"Ciremai\") (Latin: Gunung Ceremé) adalah gunung berapi kerucut yang secara administratif termasuk dalam wilayah dua kabupaten, yakni Kabupaten Kuningan dan Kabupaten Majalengka, Provinsi Jawa Barat. Posisi geografis puncaknya terletak pada 6° 53\' 30\" LS dan 108° 24\' 00\" BT, dengan ketinggian 3.078 m di atas permukaan laut. Gunung ini merupakan gunung tertinggi di Jawa Barat.', 'be77d9db0dfd2682f00bfefe3d1419f9.png');
+(1, 'Gunung Ceremai (sering kali secara salah kaprah dinamakan \"Ciremai\") (Latin: Gunung Ceremé) adalah gunung berapi kerucut yang secara administratif termasuk dalam wilayah dua kabupaten, yakni Kabupaten Kuningan dan Kabupaten Majalengka, Provinsi Jawa Barat.', '9c40ffa7bfe804fbf595a360520f82d9.jpg'),
+(2, '1. Mengisi data untuk pendaftaran\r\n2. Pastikan seluruh rombongan pendaki berusia minimal 13 tahun\r\n3. Siapkan identitas KTP/SIM/KK/Paspor\r\n4. Lakukan booking paling lambat H-1 pendakian\r\n5. Siapkan perlengkapan dan logistik pendakian yang mencukupi.\r\n6. Pastikan kondisi seluruh rombongan pendaki dalam kondisi sehat.\r\n7. Pastikan jumlah rombongan pendaki minimal 4 orang dan maksimal 8 orang. \r\n8. Durasi pendakian gunung Ciremai adalah 2 hari 1 malam (2D1N). Bila melebihi durasi tersebut dikenakan tarif tambahan\r\n9. Mematuhi semua peraturan dan larangan yang berlaku\r\n10. Mematuhi Protokol Kesehatan penyelenggaraan wisata alam gunung Ciremai saat pandemi Covid 19. \r\n11. Melakukan transfer Penerimaan Negara Bukan Pajak (PNBP) sesuai nominal.\r\n12. Mendirikan tenda di Transit Camp sesuai kode kapling dengan jarak 10 meter antar tenda dan setiap tenda diisi maksimal 2 orang\r\n13. Mengikuti cek kesehatan, cek perlengkapan, dan safety talk di Base Camp\r\n14. Prosedur Tetap Pendakian dapati diunduh pada tautan ini (https://drive.google.com/file/d/1OKWfJ3LR5HX_KNtX04Td2XBV94h1eMYX/view?usp=sharing)\r\nKuota jalur pendakian:\r\n- Linggajati: 35 tenda di Transit Camp untuk 69 pendaki per hari.', '6f9e06d88a63b060392a130f09d65b6d.jpeg');
 
 -- --------------------------------------------------------
 
@@ -247,6 +248,32 @@ CREATE TABLE `tbl_periode` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_pos`
+--
+
+CREATE TABLE `tbl_pos` (
+  `id_pos` int(11) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `gambar` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_pos`
+--
+
+INSERT INTO `tbl_pos` (`id_pos`, `deskripsi`, `gambar`) VALUES
+(1, '(Cigowong) memiliki lahan yang luas dengan dikelilingi banyak pepohonan besar, di Pos ini juga anda akan menemukan warung untuk istirahat dan membeli bahan-bahan untuk persiapan pendakian apabila anda lupa membeli barang tersebut atau tertinggal. Untuk trek Pos 1 (Cigowong) didominasi trek yang menanjak dan mungkin merupakan trek yang panjang dan melelahkan bagi anda.', '0bf4b1338d22a8ee66b33e880a23ca60.jpeg'),
+(2, '(Kuta) ketinggian 1575 mdpl, untuk perjalanan dari Pos 1 menuju Pos 2 membutuhkan estimasi waktu 30 menit dengan trek yang terus menanjak jadi akan tetap terasa melelahkan. Di pos ini anda hanya bisa beristirahat sejenak apabila anda kelelahan, di Pos ini memiliki lahan yang kecil jadi anda tidak bisa berlama-lama istirahat di pos ini karena akan mengganggu para pendaki lain yang lewat.', 'd07cff37bf5785d5afc0f09add893068.jpeg'),
+(3, '(Pangguyangan Badak) dengan ketinggian 1800 mdpl. Perjalanan dari Pos 2 menuju Pos 3 membutuhkan estimasi waktu 45 menit. Trek menuju Pos 3 anda akan melewati jalan yang lumayan landai namun sedikit memutar. Trek dengan pepohonan yang rimbun juga harus selalu tetap diwaspadai.', '3cc5f6d43fd787cdf2f32d9a9065c277.jpeg'),
+(4, '(Arban) dengan ketinggian 2050 mdpl. Trek menuju Pos 4 cukup melelahkan karena jalurnya sebagian besar menanjak dan estimasi waktu yang dibutuhkan menuju Pos 4 adalah 1 jam. Di Pos ini memiliki jalur yang cukup luas untuk anda beristirahat.', 'fe9f421fb87c58b1e971a7b3a6f3db10.jpeg'),
+(5, '(Asoy) dengan ketinggian 2108 mdpl. Trek ini merupakan trek yang cukup liar karena jalurnya yang menanjak dan sedikit bebatuan membuat trek ini cukup berat untuk dilewati. Pendakian dari Pos 4 menuju Pos 5 membutuhkan estimasi waktu 30 menit dengan tanjakannya yang extrim.', '2533758d280e5140dc714ada4473c2b8.jpeg'),
+(6, '(Pasanggrahan) dengan trek yang masih terus menanjak. Ketinggian pada Pos ini adalah 2200 mdpl dan estimasi yang dibutuhkan 1 jam pendakian. Pos 6 ini memiliki lahan yang luas dengan kondisi tanah yang cukup rata walaupun agak sedikit naik, biasanya Pos ini dijadikan tempat perkemahan untuk para pendaki yang kelelahan.', '62ae632f0ce30661e9d971ec79fda81a.jpeg'),
+(7, '(Sanghyang Ropoh) dengan ketinggian 2650 mdpl. Pendakian menuju Pos 7 membutuhkan estimasi waktu 1 jam dengan trek yang masih terus menanjak dan exstrim karena akan banyak bebatuan yang sangat besar bekas lava sepanjang pendakian. Di Pos ini juga kita akan menjumpai percabangan dari jalur Apuy yang dinamakan simpang Apuy.', '61d99d982e36f9c2c44e99ad407b3035.jpeg'),
+(8, '(Goa walet) memerlukan estimasi waktu pendakian 1 jam dengan trek yang masih menanjak. Lahan dari Pos ini cukup luas untuk beristirahat, tapi tidak disarankan untuk camp / mendirikan tenda.', 'a3593d5f6c98c14091493d3c260955dd.jpeg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_sub_menu`
 --
 
@@ -265,7 +292,9 @@ CREATE TABLE `tbl_sub_menu` (
 
 INSERT INTO `tbl_sub_menu` (`id_sub_menu`, `id_menu`, `nama_sub_menu`, `icon_sub_menu`, `url_sub_menu`, `is_active`) VALUES
 (1, 8, 'Gambar', 'fa fa-image', 'c_dashboard/interface_gambar', 1),
-(2, 8, 'Tentang', 'fa fa-info', 'c_dashboard/interface_tentang', 1);
+(2, 8, 'Tentang', 'fa fa-info', 'c_dashboard/interface_tentang', 1),
+(3, 8, 'Pos', 'fa fa-map-marker', 'c_dashboard/interface_pos', 1),
+(4, 8, 'Aturan', 'fa fa-list', 'c_dashboard/interface_aturan', 1);
 
 -- --------------------------------------------------------
 
@@ -376,6 +405,12 @@ ALTER TABLE `tbl_order`
   ADD PRIMARY KEY (`id_order`);
 
 --
+-- Indexes for table `tbl_pos`
+--
+ALTER TABLE `tbl_pos`
+  ADD PRIMARY KEY (`id_pos`);
+
+--
 -- Indexes for table `tbl_sub_menu`
 --
 ALTER TABLE `tbl_sub_menu`
@@ -434,10 +469,16 @@ ALTER TABLE `tbl_order`
   MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `tbl_pos`
+--
+ALTER TABLE `tbl_pos`
+  MODIFY `id_pos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `tbl_sub_menu`
 --
 ALTER TABLE `tbl_sub_menu`
-  MODIFY `id_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
