@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2021 at 08:18 PM
+-- Generation Time: Oct 06, 2021 at 08:37 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.23
 
@@ -94,7 +94,9 @@ INSERT INTO `tbl_chat` (`id_chat`, `id_admin`, `id_customer`, `pesan`, `timestam
 (9, 0, 3, 'Ini user', '2021-09-24 10:46:37', 0),
 (10, 0, 3, 'ini user 2', '2021-09-24 10:50:51', 0),
 (11, 0, 3, 'Ini user 3', '2021-09-24 10:51:40', 0),
-(12, 0, 7, 'Hai admin', '2021-09-30 13:31:56', 0);
+(12, 0, 7, 'Hai admin', '2021-09-30 13:31:56', 0),
+(13, 0, 3, '', '2021-10-06 06:19:59', 0),
+(14, 0, 3, '', '2021-10-06 06:20:01', 0);
 
 -- --------------------------------------------------------
 
@@ -253,6 +255,7 @@ CREATE TABLE `tbl_periode` (
 
 CREATE TABLE `tbl_pos` (
   `id_pos` int(11) NOT NULL,
+  `nama_pos` varchar(50) NOT NULL,
   `deskripsi` text NOT NULL,
   `gambar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -261,15 +264,15 @@ CREATE TABLE `tbl_pos` (
 -- Dumping data for table `tbl_pos`
 --
 
-INSERT INTO `tbl_pos` (`id_pos`, `deskripsi`, `gambar`) VALUES
-(1, '(Cigowong) memiliki lahan yang luas dengan dikelilingi banyak pepohonan besar, di Pos ini juga anda akan menemukan warung untuk istirahat dan membeli bahan-bahan untuk persiapan pendakian apabila anda lupa membeli barang tersebut atau tertinggal. Untuk trek Pos 1 (Cigowong) didominasi trek yang menanjak dan mungkin merupakan trek yang panjang dan melelahkan bagi anda.', '0bf4b1338d22a8ee66b33e880a23ca60.jpeg'),
-(2, '(Kuta) ketinggian 1575 mdpl, untuk perjalanan dari Pos 1 menuju Pos 2 membutuhkan estimasi waktu 30 menit dengan trek yang terus menanjak jadi akan tetap terasa melelahkan. Di pos ini anda hanya bisa beristirahat sejenak apabila anda kelelahan, di Pos ini memiliki lahan yang kecil jadi anda tidak bisa berlama-lama istirahat di pos ini karena akan mengganggu para pendaki lain yang lewat.', 'd07cff37bf5785d5afc0f09add893068.jpeg'),
-(3, '(Pangguyangan Badak) dengan ketinggian 1800 mdpl. Perjalanan dari Pos 2 menuju Pos 3 membutuhkan estimasi waktu 45 menit. Trek menuju Pos 3 anda akan melewati jalan yang lumayan landai namun sedikit memutar. Trek dengan pepohonan yang rimbun juga harus selalu tetap diwaspadai.', '3cc5f6d43fd787cdf2f32d9a9065c277.jpeg'),
-(4, '(Arban) dengan ketinggian 2050 mdpl. Trek menuju Pos 4 cukup melelahkan karena jalurnya sebagian besar menanjak dan estimasi waktu yang dibutuhkan menuju Pos 4 adalah 1 jam. Di Pos ini memiliki jalur yang cukup luas untuk anda beristirahat.', 'fe9f421fb87c58b1e971a7b3a6f3db10.jpeg'),
-(5, '(Asoy) dengan ketinggian 2108 mdpl. Trek ini merupakan trek yang cukup liar karena jalurnya yang menanjak dan sedikit bebatuan membuat trek ini cukup berat untuk dilewati. Pendakian dari Pos 4 menuju Pos 5 membutuhkan estimasi waktu 30 menit dengan tanjakannya yang extrim.', '2533758d280e5140dc714ada4473c2b8.jpeg'),
-(6, '(Pasanggrahan) dengan trek yang masih terus menanjak. Ketinggian pada Pos ini adalah 2200 mdpl dan estimasi yang dibutuhkan 1 jam pendakian. Pos 6 ini memiliki lahan yang luas dengan kondisi tanah yang cukup rata walaupun agak sedikit naik, biasanya Pos ini dijadikan tempat perkemahan untuk para pendaki yang kelelahan.', '62ae632f0ce30661e9d971ec79fda81a.jpeg'),
-(7, '(Sanghyang Ropoh) dengan ketinggian 2650 mdpl. Pendakian menuju Pos 7 membutuhkan estimasi waktu 1 jam dengan trek yang masih terus menanjak dan exstrim karena akan banyak bebatuan yang sangat besar bekas lava sepanjang pendakian. Di Pos ini juga kita akan menjumpai percabangan dari jalur Apuy yang dinamakan simpang Apuy.', '61d99d982e36f9c2c44e99ad407b3035.jpeg'),
-(8, '(Goa walet) memerlukan estimasi waktu pendakian 1 jam dengan trek yang masih menanjak. Lahan dari Pos ini cukup luas untuk beristirahat, tapi tidak disarankan untuk camp / mendirikan tenda.', 'a3593d5f6c98c14091493d3c260955dd.jpeg');
+INSERT INTO `tbl_pos` (`id_pos`, `nama_pos`, `deskripsi`, `gambar`) VALUES
+(1, 'Cigowong', '(Cigowong) memiliki lahan yang luas dengan dikelilingi banyak pepohonan besar, di Pos ini juga anda akan menemukan warung untuk istirahat dan membeli bahan-bahan untuk persiapan pendakian apabila anda lupa membeli barang tersebut atau tertinggal. Untuk trek Pos 1 (Cigowong) didominasi trek yang menanjak dan mungkin merupakan trek yang panjang dan melelahkan bagi anda.', '0bf4b1338d22a8ee66b33e880a23ca60.jpeg'),
+(2, 'Kuta', '(Kuta) ketinggian 1575 mdpl, untuk perjalanan dari Pos 1 menuju Pos 2 membutuhkan estimasi waktu 30 menit dengan trek yang terus menanjak jadi akan tetap terasa melelahkan. Di pos ini anda hanya bisa beristirahat sejenak apabila anda kelelahan, di Pos ini memiliki lahan yang kecil jadi anda tidak bisa berlama-lama istirahat di pos ini karena akan mengganggu para pendaki lain yang lewat.', 'd07cff37bf5785d5afc0f09add893068.jpeg'),
+(3, 'Pangguyangan Badak', '(Pangguyangan Badak) dengan ketinggian 1800 mdpl. Perjalanan dari Pos 2 menuju Pos 3 membutuhkan estimasi waktu 45 menit. Trek menuju Pos 3 anda akan melewati jalan yang lumayan landai namun sedikit memutar. Trek dengan pepohonan yang rimbun juga harus selalu tetap diwaspadai.', '3cc5f6d43fd787cdf2f32d9a9065c277.jpeg'),
+(4, 'Arban', '(Arban) dengan ketinggian 2050 mdpl. Trek menuju Pos 4 cukup melelahkan karena jalurnya sebagian besar menanjak dan estimasi waktu yang dibutuhkan menuju Pos 4 adalah 1 jam. Di Pos ini memiliki jalur yang cukup luas untuk anda beristirahat.', 'fe9f421fb87c58b1e971a7b3a6f3db10.jpeg'),
+(5, 'Asoy', '(Asoy) dengan ketinggian 2108 mdpl. Trek ini merupakan trek yang cukup liar karena jalurnya yang menanjak dan sedikit bebatuan membuat trek ini cukup berat untuk dilewati. Pendakian dari Pos 4 menuju Pos 5 membutuhkan estimasi waktu 30 menit dengan tanjakannya yang extrim.', '2533758d280e5140dc714ada4473c2b8.jpeg'),
+(6, 'Pasanggrahan', '(Pasanggrahan) dengan trek yang masih terus menanjak. Ketinggian pada Pos ini adalah 2200 mdpl dan estimasi yang dibutuhkan 1 jam pendakian. Pos 6 ini memiliki lahan yang luas dengan kondisi tanah yang cukup rata walaupun agak sedikit naik, biasanya Pos ini dijadikan tempat perkemahan untuk para pendaki yang kelelahan.', '62ae632f0ce30661e9d971ec79fda81a.jpeg'),
+(7, 'Sanghyang Ropoh', '(Sanghyang Ropoh) dengan ketinggian 2650 mdpl. Pendakian menuju Pos 7 membutuhkan estimasi waktu 1 jam dengan trek yang masih terus menanjak dan exstrim karena akan banyak bebatuan yang sangat besar bekas lava sepanjang pendakian. Di Pos ini juga kita akan menjumpai percabangan dari jalur Apuy yang dinamakan simpang Apuy.', '61d99d982e36f9c2c44e99ad407b3035.jpeg'),
+(8, 'Goa Walet', '(Goa walet) memerlukan estimasi waktu pendakian 1 jam dengan trek yang masih menanjak. Lahan dari Pos ini cukup luas untuk beristirahat, tapi tidak disarankan untuk camp / mendirikan tenda.', 'a3593d5f6c98c14091493d3c260955dd.jpeg');
 
 -- --------------------------------------------------------
 
@@ -436,7 +439,7 @@ ALTER TABLE `tbl_banner`
 -- AUTO_INCREMENT for table `tbl_chat`
 --
 ALTER TABLE `tbl_chat`
-  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_chat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_customer`
