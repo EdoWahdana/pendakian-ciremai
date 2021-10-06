@@ -96,7 +96,6 @@ class C_home extends CI_Controller {
 		$this->load->view('main/template/header', $data);
 		$this->load->view('main/template/navbar');
 		$this->load->view('main/Profil', $data);
-		$this->load->view('main/template/footer', $data);
 		$this->load->view('main/template/end');
 	}
 	
@@ -107,7 +106,6 @@ class C_home extends CI_Controller {
 		$this->load->view('main/template/header', $data);
 		$this->load->view('main/template/navbar');
 		$this->load->view('main/Edit-profil', $data);
-		$this->load->view('main/template/footer', $data);
 		$this->load->view('main/template/end');
 	}
 	

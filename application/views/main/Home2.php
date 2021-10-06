@@ -12,7 +12,8 @@
     <div class="container">
         <div class="text-bg">
             <h1>Pendakian<br><strong class="white">Gunung Ciremai</strong></h1>
-            <div class="container">
+			<p class="text-white" style="font-size: 30px"> JALUR PALUTUNGAN </p>
+            <div class="container mt-3">
                 <form id="periode" class="main-form" method="post" action="<?= site_url('c_home/booking'); ?>">
                 <h3>Temukan Jadwal</h3>
                 <div class="row">
@@ -55,6 +56,7 @@
     </div>
     </div>
 </section>
+
 <!-- about -->
 <div id="about" class="about mt-5">
     <div class="container">
@@ -78,6 +80,7 @@
          </div>
 </div>
 <!-- end about -->
+
 <!-- traveling -->
 <div id="travel" class="traveling">
     <div class="container">
@@ -99,13 +102,10 @@
     <div class="row ml-4">
 		<?php foreach ($pos as $p) { ?>
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 my-2 mx-auto">
-			<div class="card" style="width: 18rem;">
+			<div class="card shadow" style="width: 18rem;">
 			  <img src="<?= base_url('assets/images/pos/') . $p['gambar'] ?>" class="img-fluid card-img-top" alt="icon" />
 			  <div class="card-body">
-				<h3 class="card-title text-center font-weight-bold" style="margin: 0;">Pos <?= $p['id_pos'] ?> </h3>
-				<p class="card-text"><?= (strlen($p['deskripsi']) > 60) ? substr($p['deskripsi'], 0, 60)."..." : $p['deskripsi'] ?></p>
-				
-				<a href="#" class="card-link">Selengkapnya</a>
+				<h4 class="card-title text-center font-weight-bold" style="margin: 0;">Pos <?= $p['id_pos'] ?> - <?= $p['nama_pos'] ?></h4>
 			  </div>
 			</div>
         </div>

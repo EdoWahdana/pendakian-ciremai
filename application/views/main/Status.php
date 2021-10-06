@@ -10,7 +10,7 @@
                 <div class="col-sm-4 offset-sm-1 my-1 text-right">
                     Status
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1" style="max-width: 4%;">
                     :
                 </div>
                 <div class="col-sm-4 text-left mb-3">
@@ -29,7 +29,7 @@
                 <div class="col-sm-4 offset-sm-1 my-1 text-right">
                     Harga
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1" style="max-width: 4%;">
                     :
                 </div>
                 <div class="col-sm-4 text-left mb-3">
@@ -38,7 +38,7 @@
                 <div class="col-sm-4 offset-sm-1 my-1 text-right">
                     Kode Booking
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1" style="max-width: 4%;">
                     :
                 </div>
                 <div class="col-sm-4 text-left">
@@ -47,7 +47,7 @@
                 <div class="col-sm-4 offset-sm-1 my-1 text-right">
                     Tanggal Naik
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1" style="max-width: 4%;">
                     :
                 </div>
                 <div class="col-sm-4 text-left">
@@ -56,7 +56,7 @@
                 <div class="col-sm-4 offset-sm-1 my-1 text-right">
                     Tanggal Turun
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1" style="max-width: 4%;">
                     :
                 </div>
                 <div class="col-sm-4 text-left">
@@ -65,7 +65,7 @@
                 <div class="col-sm-4 offset-sm-1 my-1 text-right">
                     Nama
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1" style="max-width: 4%;">
                     :
                 </div>
                 <div class="col-sm-4 text-left">
@@ -74,7 +74,7 @@
                 <div class="col-sm-4 offset-sm-1 my-1 text-right">
                     Alamat
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1" style="max-width: 4%;">
                     :
                 </div>
                 <div class="col-sm-4 text-left">
@@ -83,10 +83,10 @@
                 <div class="col-sm-4 offset-sm-1 my-1 text-right">
                     Jenis Identitas
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1" style="max-width: 4%;">
                     :
                 </div>
-                <div class="col-sm-4 text-left">
+                <div class="col-sm-2 text-left">
                     <p class="font-weight-bold"><?= $this->session->userdata('jenis_identitas') ?>
                 </div>
                 <div class="col-sm-12 text-center mt-3">

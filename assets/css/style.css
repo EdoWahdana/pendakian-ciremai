@@ -1615,7 +1615,7 @@ input[type="radio"] .styled:checked+label::after {
 .text-bg {
      position: absolute;
      right: 0;
-     top: 50%;
+     top: 40%;
      transform: translateY(-50%);
      bottom: auto;
      padding: 0;
