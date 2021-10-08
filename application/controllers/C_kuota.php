@@ -78,4 +78,16 @@ class C_kuota extends CI_Controller {
         echo $dataKuota;
         // var_dump($dataKuota);
     }
+	
+	public function hapus_kuota_per_hari() {
+		$id_kuota = $_GET['id_kuota'];
+		
+		if($this->m_kuota->delete_kuota_per_id($id_kuota) == TRUE) {
+			$this->session->set_flashdata('message', '<div class="alert alert-success text-center">Kuota pendakian berhasil dihapus.</div>');
+            redirect('c_dashboard/kuota');
+		} else {
+			$this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Kuota pendakian GAGAL dihapus.</div>');
+            redirect('c_dashboard/kuota');
+		}
+	}
 }

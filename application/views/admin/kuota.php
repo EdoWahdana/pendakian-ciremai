@@ -58,6 +58,7 @@
                     <tr>
                         <th scope="col">Tanggal</th>
                         <th scope="col">Kuota Tersisa</th>
+						<th scope="col">Hapus Kuota</th>
                     </tr>
                 </thead>
                 <tbody id="daftar-kuota">
@@ -68,6 +69,7 @@
                         echo "  <tr>
                                     <td>". indonesian_date($data['tanggal']) ."</td>
                                     <td>".$data['kuota_tersisa'] ."</td>
+									<td><a class='btn btn-sm btn-danger' href='". base_url('c_kuota/hapus_kuota_per_hari') ."?id_kuota=".$data['id_kuota']."'>Hapus</a></td>
                                 </tr>";
                     }
                 } else if(empty($dataKuota) && isset($query)) {

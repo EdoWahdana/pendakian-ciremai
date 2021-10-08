@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_kuota extends CI_Model { 
 
+	public function delete_kuota_per_id($id_kuota) {
+		$this->db->where('id_kuota', $id_kuota);
+		return $this->db->delete('tbl_kuota');
+	}
+
     public function insert_kuota($data) {
         $this->db->where('tanggal', $data['tanggal']);
         $result = $this->db->get('tbl_kuota');
@@ -13,7 +18,6 @@ class M_kuota extends CI_Model {
         } else {
             return $this->db->insert('tbl_kuota', $data);
         }
-        
     }
 
     public function get_kuota_per_tanggal($tanggal) {

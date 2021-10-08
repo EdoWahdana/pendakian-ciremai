@@ -33,7 +33,7 @@
                     :
                 </div>
                 <div class="col-sm-4 text-left mb-3">
-                    <p class="font-weight-bold h6"><?= $data_order[0]['harga'] ?>
+                    <p class="font-weight-bold h6">Rp <?= number_format($data_order[0]['harga'],0, ',', '.') ?>
                 </div>
                 <div class="col-sm-4 offset-sm-1 my-1 text-right">
                     Kode Booking
