@@ -1,6 +1,6 @@
 <div class="container">
     <h3 class="font-weight-bold text-center my-3">Register Pendaki Ciremai</h3>
-    <?= $this->session->flashdata('message') ?>
+    <?= $this->session->flashdata('message_register') ?>
     <div class="text-black my-3">
         <form action="<?= base_url('c_auth/register') ?>" method="post" class="mainform" enctype="multipart/form-data">
             <div class="container">

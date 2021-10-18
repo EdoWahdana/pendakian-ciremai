@@ -102,10 +102,10 @@ class C_auth extends CI_Controller {
 
             $affected_row = $this->m_customer->insert_customer($data);
 			if($affected_row == TRUE){
-				$this->session->set_flashdata('message', '<div class="alert alert-success">Akun pendaki baru berhasil terdaftar.</div>');
+				$this->session->set_flashdata('message_register', '<div class="alert alert-success">Akun pendaki baru berhasil terdaftar.</div>');
 				redirect('c_home/login');
 			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger">Kesalahan! Silahkan daftar ulang.</div>');
+				$this->session->set_flashdata('message_register', '<div class="alert alert-danger">Kesalahan! Silahkan daftar ulang.</div>');
 				redirect('c_home/register');
 			}
         }
