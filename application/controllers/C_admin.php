@@ -86,10 +86,10 @@ class C_admin extends CI_Controller {
 
 			$affected_row = $this->m_admin->insert_admin($data);
 			if($affected_row == TRUE){
-				$this->session->set_flashdata('message', '<div class="alert alert-success">Admin baru berhasil terdaftar.</div>');
+				$this->session->set_flashdata('message_admin_register', '<div class="alert alert-success">Admin baru berhasil terdaftar.</div>');
 				redirect('C_admin');
 			} else {
-				$this->session->set_flashdata('message', '<div class="alert alert-danger">Kesalahan! Silahkan daftar ulang.</div>');
+				$this->session->set_flashdata('message_admin_register', '<div class="alert alert-danger">Kesalahan! Silahkan daftar ulang.</div>');
 				redirect('C_admin/register_admin');	
 			}
 		}	

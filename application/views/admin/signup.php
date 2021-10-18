@@ -18,7 +18,7 @@
             <a href="<?= base_url('c_admin') ?>"><img src="<?= base_url('assets/'); ?>images/tngc.png" class="img-fluid img-responsive"></a>
         </div>
         <div class="col-md-6">
-            <?= $this->session->flashdata('message'); ?>
+            <?= $this->session->flashdata('message_admin_register'); ?>
             <div class="card card-login shadow-lg mx-auto mb-5">
             <div class="card-header text-center my-4">
                 <h3 class="text-fluid">Register Admin Baru</h3>
