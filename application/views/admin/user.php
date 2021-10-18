@@ -1,7 +1,7 @@
 <div class="container">
     <h2 class="text-center font-weight-bold">Daftar User</h2>
     <hr>
-    <?= $this->session->flashdata('message') ?>
+    <?= $this->session->flashdata('message_customer_admin') ?>
     <div class="row">
         <div class="col">
             <table class="table table-bordered" id="mainTable">

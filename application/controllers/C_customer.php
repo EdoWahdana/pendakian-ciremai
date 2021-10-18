@@ -13,11 +13,11 @@ class C_customer extends CI_Controller {
         $id = $this->input->get('id');
 
         if($this->m_customer->delete_customer_by_id($id) != FALSE) {
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">User berhasil dihapus.</div>');
-            redirect('c_dashboard/user');
+            $this->session->set_flashdata('message_customer_admin', '<div class="alert alert-success text-center">User berhasil dihapus.</div>');
+            redirect('c_dashboard/dashboard');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Terjadi Kesalahan! Silahkan coba lagi.</div>');
-            redirect('c_dashboard/user');
+            $this->session->set_flashdata('message_customer_admin', '<div class="alert alert-danger text-center">Terjadi Kesalahan! Silahkan coba lagi.</div>');
+            redirect('c_dashboard/dashboard');
         }
     }
 }
