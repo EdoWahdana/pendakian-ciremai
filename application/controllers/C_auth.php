@@ -149,11 +149,11 @@ class C_auth extends CI_Controller {
                     $this->session->set_userdata($session_data);
                     redirect('c_home');
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger">Password tidak sesuai.</div>');
+                    $this->session->set_flashdata('message_login', '<div class="alert alert-danger">Password tidak sesuai.</div>');
 					redirect('c_home/login');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger">Anda belum terdaftar.</div>');
+                $this->session->set_flashdata('message_login', '<div class="alert alert-danger">Anda belum terdaftar.</div>');
 				redirect('c_home/login');	
             }
         }

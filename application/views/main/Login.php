@@ -1,6 +1,6 @@
 <div class="container">
     <h3 class="font-weight-bold text-center my-3">Login Pendaki Ciremai</h3>
-    <?= $this->session->flashdata('message') ?>
+    <?= $this->session->flashdata('message_login') ?>
     <div class="text-black my-3">
         <form action="<?= base_url('c_auth/login') ?>" method="post" class="mainform">
             <div class="container">
