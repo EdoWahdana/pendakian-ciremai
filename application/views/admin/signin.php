@@ -17,7 +17,7 @@
             <a href="<?= base_url('c_admin/register_admin') ?>"><img src="<?= base_url('assets/'); ?>images/tngc.png" class="img-fluid img-responsive"></a>
         </div>
         <div class="col-md-6">
-            <?= $this->session->flashdata('message'); ?>
+            <?= $this->session->flashdata('message_admin_signin'); ?>
             <div class="card card-login shadow-lg mx-auto">
             <div class="card-header text-center">
                 <h3 class="text-fluid">Hai Admin,silahkan masuk</h3>

@@ -194,11 +194,11 @@ class C_auth extends CI_Controller {
                     } else {
                         return $img['file_name']; }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
-                redirect('c_main/jual_barang'); }
+                $this->session->set_flashdata('message_register', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
+                redirect('c_auth/register'); }
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Pilih gambar yang mau diupload..!!</div>');
-            redirect('c_main/jual_barang');
+            $this->session->set_flashdata('message_register', '<div class="alert alert-danger text-center">Pilih gambar yang mau diupload..!!</div>');
+            redirect('c_auth/register');
         }
     }
 }
