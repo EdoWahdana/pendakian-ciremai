@@ -30,6 +30,13 @@ class M_order extends CI_Model {
         $this->db->where('id_customer', $id_customer);
         return $this->db->get('tbl_order');
     }
+	
+	public function get_order_count_by_customer($id_customer)
+	{
+		$this->db->where('id_customer', $id_customer);
+		$this->db->where('status_order', 2);
+		return $this->db->count_all_results('tbl_order');
+	}
 
     public function get_order_join_customer($kode_order)
     {
@@ -72,4 +79,18 @@ class M_order extends CI_Model {
         $this->db->set('status_order', $status_order);
         return $this->db->update('tbl_order');
     }
+	
+	public function update_customer_check_in($kode_order)
+	{
+		$this->db->where('kode_order', $kode_order);
+		$this->db->set('check_in', 1);
+		return $this->db->update('tbl_order');
+	}
+	
+	public function update_customer_check_out($kode_order)
+	{
+		$this->db->where('kode_order', $kode_order);
+		$this->db->set('check_out', 1);
+		return $this->db->update('tbl_order');
+	}
 }

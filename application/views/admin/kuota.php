@@ -1,6 +1,6 @@
 <?php $daftarBulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"] ?>
 <div class="container">
-    <?= $this->session->flashdata('message'); ?>
+    <?= $this->session->flashdata('message_kuota'); ?>
     <div class="row">
         <div class="col mt-3">
             <button type="button" class="btn btn-info btn-block mb-4" data-toggle="modal" data-target="#modalTambahKuota">

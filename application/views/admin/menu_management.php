@@ -13,7 +13,7 @@
             </div>   
         </div>
 
-        <?= $this->session->flashdata('message'); ?>
+        <?= $this->session->flashdata('message_menu'); ?>
 
             <!-- Table Section -->
         <div class="table-responsive">

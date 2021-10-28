@@ -34,10 +34,10 @@ class C_kuota extends CI_Controller {
         ];
 
         if($this->m_kuota->insert_kuota($data) === TRUE){
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Kuota Pendaki berhasil ditambahkan.</div>');
+            $this->session->set_flashdata('message_kuota', '<div class="alert alert-success text-center">Kuota Pendaki berhasil ditambahkan.</div>');
             redirect('c_dashboard/kuota');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Kuota Pendaki GAGAL ditambahkan.</div>');
+            $this->session->set_flashdata('message_kuota', '<div class="alert alert-danger text-center">Kuota Pendaki GAGAL ditambahkan.</div>');
             redirect('c_dashboard/kuota');
         }
     }
@@ -83,10 +83,10 @@ class C_kuota extends CI_Controller {
 		$id_kuota = $_GET['id_kuota'];
 		
 		if($this->m_kuota->delete_kuota_per_id($id_kuota) == TRUE) {
-			$this->session->set_flashdata('message', '<div class="alert alert-success text-center">Kuota pendakian berhasil dihapus.</div>');
+			$this->session->set_flashdata('message_kuota', '<div class="alert alert-success text-center">Kuota pendakian berhasil dihapus.</div>');
             redirect('c_dashboard/kuota');
 		} else {
-			$this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Kuota pendakian GAGAL dihapus.</div>');
+			$this->session->set_flashdata('message_kuota', '<div class="alert alert-danger text-center">Kuota pendakian GAGAL dihapus.</div>');
             redirect('c_dashboard/kuota');
 		}
 	}

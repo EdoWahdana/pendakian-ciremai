@@ -38,10 +38,10 @@ class C_interface extends CI_Controller {
         ];
 
         if($this->m_interface->set_interface_tentang($data) != FALSE) {
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Update gambar banner berhasil.</div>');
+            $this->session->set_flashdata('message_gambar', '<div class="alert alert-success text-center">Update gambar banner berhasil.</div>');
             redirect('c_dashboard/interface_gambar');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
+            $this->session->set_flashdata('message_gambar', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
             redirect('c_dashboard/interface_gambar');
         }
     }
@@ -55,10 +55,10 @@ class C_interface extends CI_Controller {
         ];
 
         if($this->m_interface->set_interface_tentang($data) != FALSE) {
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Update info berhail.</div>');
+            $this->session->set_flashdata('message_tentang', '<div class="alert alert-success text-center">Update info berhail.</div>');
             redirect('c_dashboard/interface_tentang');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Terjadi kesalahan.</div>');
+            $this->session->set_flashdata('message_tentang', '<div class="alert alert-danger text-center">Terjadi kesalahan.</div>');
             redirect('c_dashboard/interface_tentang');
         }
     }
@@ -92,10 +92,10 @@ class C_interface extends CI_Controller {
                     // } else {
                     //     return $img['file_name']; }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
+                $this->session->set_flashdata('message_gambar', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
                 redirect('c_dashboard/interface_gambar'); }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'</div>');
+                $this->session->set_flashdata('message_gambar', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'</div>');
                 redirect('c_dashboard/interface_gambar'); }
     } // End of upload_image()
 }

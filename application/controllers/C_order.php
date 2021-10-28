@@ -18,6 +18,32 @@ class C_order extends CI_Controller {
         //Mengambil dafar submenu yang aktif
         $this->submenu = $this->m_dashboard->get_submenu_aktif()->result_array();
     }
+	
+	public function check_in_customer()
+	{
+		$kode_order = $this->input->post('kode_order');
+		
+		if($this->m_order->update_customer_check_in($kode_order) != FALSE) {
+			$this->session->set_flashdata('message_order', '<div class="alert alert-success text-center">Data Order berhasil diupdate.</div>');
+			redirect('c_dashboard/order');
+		} else {
+			$this->session->set_flashdata('message_order', '<div class="alert alert-danger text-center">Data Order GAGAL diupdate!!</div>');
+			redirect('c_dashboard/order');
+		}
+	}
+	
+	public function check_out_customer()
+	{
+		$kode_order = $this->input->post('kode_order');
+		
+		if($this->m_order->update_customer_check_out($kode_order) != FALSE) {
+			$this->session->set_flashdata('message_order', '<div class="alert alert-success text-center">Data Order berhasil diupdate.</div>');
+			redirect('c_dashboard/order');
+		} else {
+			$this->session->set_flashdata('message_order', '<div class="alert alert-danger text-center">Data Order GAGAL diupdate!!</div>');
+			redirect('c_dashboard/order');
+		}
+	}
 
     // Method untuk admin
     public function detail_order()
@@ -53,7 +79,13 @@ class C_order extends CI_Controller {
         $status_order = '0';
 
         // Kode order
-        $kode_order = 'CRM-' . str_pad(mt_rand(1,99999999),8,'0',STR_PAD_LEFT);
+        $kode_order = 'CRM-' . str_pad(mt_rand(1, 99999999),8,'0',STR_PAD_LEFT);
+		
+		//Tentukan diskon setiap pemesanan kedua
+		$jumlah_order = $this->m_order->get_order_count_by_customer($id_customer);
+		$diskon = 0;
+		if($jumlah_order % 2 == 0) 
+			$diskon = 10 / 100 * HARGA;
 
         // Persiapkan data untuk tabel customer
         // $dataCustomer = array();
@@ -76,13 +108,13 @@ class C_order extends CI_Controller {
             'tanggal_naik' => $tanggal_naik,
             'tanggal_turun' => $tanggal_turun,
             'status_order' => $status_order,
-            'harga' => HARGA
+            'harga' => HARGA - $diskon
         ];
         
         if($this->m_order->insert_order($dataOrder) != FALSE){
             redirect('c_order/status?order=' . $kode_order);
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Terjadi Kesalahan! Silahkan coba beberapa saat lagi.</div>');
+            $this->session->set_flashdata('message_order', '<div class="alert alert-danger text-center">Terjadi Kesalahan! Silahkan coba beberapa saat lagi.</div>');
             redirect('c_home/order?tanggal=' . $tanggal_naik);
         }
     }
@@ -93,6 +125,8 @@ class C_order extends CI_Controller {
 
         $data['title'] = "Status Booking | Ciremai";
         $data['data_order'] = $this->m_order->get_order_by_id($kode_order)->result_array();
+
+		
 
 		$this->load->view('main/template/header', $data);
 		$this->load->view('main/template/navbar');
@@ -111,10 +145,10 @@ class C_order extends CI_Controller {
         $affected_row = $this->m_order->update_bukti_pembayaran($id_order, $foto);
 
         if($affected_row == TRUE) {
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Bukti Pembayaran berhasil diupload.</div>');
+            $this->session->set_flashdata('message_pesanan', '<div class="alert alert-success text-center">Bukti Pembayaran berhasil diupload.</div>');
             redirect('c_home/pesanan');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
+            $this->session->set_flashdata('message_pesanan', '<div class="alert alert-danger text-center">'. $this->upload->display_errors() .'.</div>');
             redirect('c_home/pesanan');
         }
     }
@@ -127,10 +161,10 @@ class C_order extends CI_Controller {
         $affected_row = $this->m_order->update_status_order($kode_order, $status_order);
 
         if($affected_row == TRUE) {
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Pesanan berhasil dikonfirmasi.</div>');
+            $this->session->set_flashdata('message_order_admin', '<div class="alert alert-success text-center">Pesanan berhasil dikonfirmasi.</div>');
             redirect('c_dashboard/order');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Terjadi Kesalahan. Silahkan coba lagi.</div>');
+            $this->session->set_flashdata('message_order_admin', '<div class="alert alert-danger text-center">Terjadi Kesalahan. Silahkan coba lagi.</div>');
             redirect('c_dashboard/order');
         }
     }
@@ -143,10 +177,10 @@ class C_order extends CI_Controller {
         $affected_row = $this->m_order->update_status_order($kode_order, $status_order);
 
         if($affected_row == TRUE) {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Pesanan berhasil ditolak.</div>');
+            $this->session->set_flashdata('message_order_admin', '<div class="alert alert-danger text-center">Pesanan berhasil ditolak.</div>');
             redirect('c_dashboard/order');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Terjadi Kesalahan. Silahkan coba lagi.</div>');
+            $this->session->set_flashdata('message_order_admin', '<div class="alert alert-danger text-center">Terjadi Kesalahan. Silahkan coba lagi.</div>');
             redirect('c_dashboard/order');
         }
     }

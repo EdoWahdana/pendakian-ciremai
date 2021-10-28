@@ -32,10 +32,10 @@ class C_menu_admin extends CI_Controller {
         $id_menu = $id;
 
         if($this->m_menu_admin->update_menu($id_menu, $data) === TRUE){
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Menu <b>' .urldecode($nama). '</b> berhasil diupdate.</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-success text-center">Menu <b>' .urldecode($nama). '</b> berhasil diupdate.</div>');
             redirect('c_dashboard/menu_management');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Menu <b>' .urldecode($nama). '</b> gagal diupdate. Silahkan coba lagi!</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-danger text-center">Menu <b>' .urldecode($nama). '</b> gagal diupdate. Silahkan coba lagi!</div>');
             redirect('c_dashboard/menu_management');
         }
 
@@ -57,10 +57,10 @@ class C_menu_admin extends CI_Controller {
         $id_submenu = $id;
 
         if($this->m_menu_admin->update_submenu($id_submenu, $data) === TRUE){
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Sub Menu <b>' .urldecode($nama). '</b> berhasil diupdate.</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-success text-center">Sub Menu <b>' .urldecode($nama). '</b> berhasil diupdate.</div>');
             redirect('c_dashboard/menu_management');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Sub Menu <b>' .urldecode($nama). '</b> gagal diupdate. Silahkan coba lagi!</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-danger text-center">Sub Menu <b>' .urldecode($nama). '</b> gagal diupdate. Silahkan coba lagi!</div>');
             redirect('c_dashboard/menu_management');
         }
 
@@ -69,10 +69,10 @@ class C_menu_admin extends CI_Controller {
 
     public function hapus_menu($id) {
         if($this->m_menu_admin->delete_menu($id) === TRUE){
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Menu berhasil dihapus.</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-success text-center">Menu berhasil dihapus.</div>');
             redirect('c_dashboard/menu_management');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Menu gagal dihapus. Silahkan coba lagi!</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-danger text-center">Menu gagal dihapus. Silahkan coba lagi!</div>');
             redirect('c_dashboard/menu_management');
         }
 
@@ -87,10 +87,10 @@ class C_menu_admin extends CI_Controller {
             foreach($submenu as $s) : 
                 $this->m_menu_admin->delete_submenu($s['id_sub_menu']);
             endforeach;
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Menu berhasil dihapus.</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-success text-center">Menu berhasil dihapus.</div>');
             redirect('c_dashboard/menu_management');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Menu gagal dihapus. Silahkan coba lagi!</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-danger text-center">Menu gagal dihapus. Silahkan coba lagi!</div>');
             redirect('c_dashboard/menu_management');
         }
     }
@@ -98,10 +98,10 @@ class C_menu_admin extends CI_Controller {
 
     public function hapus_submenu($id) {
         if($this->m_menu_admin->delete_submenu($id) === TRUE){
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Sub Menu berhasil dihapus.</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-success text-center">Sub Menu berhasil dihapus.</div>');
             redirect('c_dashboard/menu_management');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Sub Menu gagal dihapus. Silahkan coba lagi!</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-danger text-center">Sub Menu gagal dihapus. Silahkan coba lagi!</div>');
             redirect('c_dashboard/menu_management');
         }
 
@@ -123,10 +123,10 @@ class C_menu_admin extends CI_Controller {
         ];
 
         if($this->m_menu_admin->insert_menu($data) === TRUE){
-            $this->session->set_flashdata('message', '<div class="alert alert-success text-center">Menu baru berhasil ditambahkan.</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-success text-center">Menu baru berhasil ditambahkan.</div>');
             redirect('c_dashboard/menu_management');
         } else {
-            $this->session->set_flashdata('message', '<div class="alert alert-danger text-center">Menu baru gagal ditambahkan. Silahkan coba lagi!</div>');
+            $this->session->set_flashdata('message_menu', '<div class="alert alert-danger text-center">Menu baru gagal ditambahkan. Silahkan coba lagi!</div>');
             redirect('c_dashboard/menu_management');
         }
 

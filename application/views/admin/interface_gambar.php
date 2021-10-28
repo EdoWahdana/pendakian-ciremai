@@ -1,7 +1,7 @@
 <div class="container">
     <h2 class="text-center font-weight-bold">Gambar Banner</h2>
     <hr>
-    <?= $this->session->flashdata('message') ?>
+    <?= $this->session->flashdata('message_gambar') ?>
     
     <div class="container text-center">
         <img src="<?= base_url('assets/images/banner/') . $interface[0]['gambar'] ?>" alt="Gambar Header" class="img-fluid img-responsive img-thumbnail mb-3" width="300">

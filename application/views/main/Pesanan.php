@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-sm-12">
             <p class="display-4 font-weight-bold text-center my-3">Pesanan Saya</p>
-            <?= $this->session->flashdata('message') ?>
+            <?= $this->session->flashdata('message_pesanan') ?>
         </div>
     </div>
     <hr>

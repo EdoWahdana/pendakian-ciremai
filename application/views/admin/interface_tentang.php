@@ -1,7 +1,7 @@
 <div class="container">
     <h2 class="text-center font-weight-bold">Tentang Gunung Ciremai</h2>
     <hr>
-    <?= $this->session->flashdata('message') ?>
+    <?= $this->session->flashdata('message_tentang') ?>
 
     <p class="text-justify mb-3"><?= $tentang[0]['tentang'] ?> </p>
     <hr>
