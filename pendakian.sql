@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2021 at 08:37 AM
+-- Generation Time: Oct 29, 2021 at 03:03 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.23
 
@@ -169,8 +169,7 @@ CREATE TABLE `tbl_kuota` (
 --
 
 INSERT INTO `tbl_kuota` (`id_kuota`, `kuota_tersisa`, `tanggal`, `bulan`, `tahun`) VALUES
-(2, 63, '2021-06-17', '06', '2021'),
-(3, 19, '2021-06-18', '06', '2021'),
+(3, 13, '2021-06-18', '06', '2021'),
 (4, 19, '2021-09-01', '09', '2021'),
 (5, 9, '2021-12-10', '12', '2021');
 
@@ -216,24 +215,33 @@ CREATE TABLE `tbl_order` (
   `tanggal_turun` varchar(50) NOT NULL,
   `status_order` char(1) NOT NULL,
   `harga` int(11) NOT NULL,
-  `bukti_pembayaran` varchar(100) NOT NULL
+  `bukti_pembayaran` varchar(100) NOT NULL,
+  `check_in` tinyint(4) NOT NULL DEFAULT 0,
+  `check_out` tinyint(4) NOT NULL DEFAULT 0,
+  `reschedule` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_order`
 --
 
-INSERT INTO `tbl_order` (`id_order`, `id_customer`, `kode_order`, `tanggal_naik`, `tanggal_turun`, `status_order`, `harga`, `bukti_pembayaran`) VALUES
-(9, 4, 'CRM-75031814', '2021-06-17', '2021-06-19', '0', 0, 'e353263b97fc45332c2966427d37d8cb.png'),
-(10, 4, 'CRM-74125633', '2021-06-17', '2021-06-19', '2', 0, '084f30f6031ee7d67a5c6d02922e15f2.png'),
-(11, 4, 'CRM-40788394', '2021-06-17', '2021-06-19', '2', 0, ''),
-(12, 4, 'CRM-93124033', '2021-06-17', '2021-06-19', '2', 0, ''),
-(13, 3, 'CRM-67480391', '2021-06-17', '2021-06-19', '0', 0, '3ba90852fcbec32c0e0ccb7aff2ff318.jpg'),
-(16, 3, 'CRM-99699767', '2021-06-17', '2021-06-19', '0', 0, ''),
-(17, 3, 'CRM-89348849', '2021-06-17', '2021-06-19', '0', 0, ''),
-(18, 6, 'CRM-92577479', '2021-06-18', '2021-06-20', '1', 0, '23a3070c3e63a349be4d7b8752f21846.png'),
-(19, 7, 'CRM-11299777', '2021-09-01', '2021-09-03', '0', 50000, ''),
-(20, 3, 'CRM-90921220', '2021-12-10', '2021-12-12', '1', 50000, 'e65d9a228e3c9a0dfe8ba7ceae724bad.png');
+INSERT INTO `tbl_order` (`id_order`, `id_customer`, `kode_order`, `tanggal_naik`, `tanggal_turun`, `status_order`, `harga`, `bukti_pembayaran`, `check_in`, `check_out`, `reschedule`) VALUES
+(9, 4, 'CRM-75031814', '2021-06-17', '2021-06-19', '0', 0, 'e353263b97fc45332c2966427d37d8cb.png', 0, 0, 0),
+(10, 4, 'CRM-74125633', '2021-06-17', '2021-06-19', '2', 0, '084f30f6031ee7d67a5c6d02922e15f2.png', 0, 0, 0),
+(11, 4, 'CRM-40788394', '2021-06-17', '2021-06-19', '2', 0, '', 0, 0, 0),
+(12, 4, 'CRM-93124033', '2021-06-17', '2021-06-19', '2', 0, '', 0, 0, 0),
+(13, 3, 'CRM-67480391', '2021-06-17', '2021-06-19', '1', 0, '3ba90852fcbec32c0e0ccb7aff2ff318.jpg', 1, 0, 0),
+(16, 3, 'CRM-99699767', '2021-06-17', '2021-06-19', '0', 0, '', 1, 0, 0),
+(17, 3, 'CRM-89348849', '2021-06-17', '2021-06-19', '0', 0, '', 1, 0, 0),
+(18, 6, 'CRM-92577479', '2021-06-18', '2021-06-20', '1', 0, '23a3070c3e63a349be4d7b8752f21846.png', 0, 0, 0),
+(19, 7, 'CRM-11299777', '2021-09-01', '2021-09-03', '0', 50000, '', 0, 0, 0),
+(20, 3, 'CRM-90921220', '2021-12-10', '2021-12-12', '1', 50000, 'e65d9a228e3c9a0dfe8ba7ceae724bad.png', 1, 0, 0),
+(21, 3, 'CRM-01015056', '2021-06-18', '2021-06-20', '0', 50000, '', 1, 0, 0),
+(22, 3, 'CRM-72985447', '2021-06-18', '2021-06-20', '0', 50000, '', 1, 0, 0),
+(23, 3, 'CRM-48616227', '2021-06-18', '2021-06-20', '0', 50000, '', 1, 0, 0),
+(24, 3, 'CRM-00187970', '2021-06-18', '2021-06-20', '0', 50000, '', 1, 1, 0),
+(25, 3, 'CRM-52588643', '2021-06-18', '2021-06-20', '0', 45000, '', 1, 0, 0),
+(26, 3, 'CRM-97256380', '2021-06-18', '2021-06-20', '0', 45000, '', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -469,7 +477,7 @@ ALTER TABLE `tbl_menu_admin`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `tbl_pos`
