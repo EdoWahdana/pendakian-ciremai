@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_customer extends CI_Model {
 
+	public function decrement_kuota_diskon_by_id($id)
+	{
+		$this->db->where('id_customer', $id);
+		$this->db->set('kuota_diskon', 'kuota_diskon-1', FALSE);
+		$this->db->update('tbl_customer');
+	}
+
     public function delete_customer_by_id($id)
     {
         $this->db->where('id_customer', $id);
@@ -25,6 +32,19 @@ class M_customer extends CI_Model {
         $this->db->where('id_customer', $id);
         return $this->db->get('tbl_customer');
     }
+	
+	public function get_kuota_diskon_by_id($id)
+	{
+		$this->db->where('id_customer', $id);
+		return $this->db->get('tbl_customer');
+	}
+
+	public function increment_kuota_diskon_by_id($id)
+	{
+		$this->db->where('id_customer', $id);
+		$this->db->set('kuota_diskon', 'kuota_diskon+1', FALSE);
+		$this->db->update('tbl_customer');
+	}
 
     public function insert_customer($data) 
     {

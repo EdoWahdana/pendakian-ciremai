@@ -10,6 +10,7 @@ class C_order extends CI_Controller {
         parent::__construct();
         $this->load->helper('indonesian_date');
         $this->load->model('m_order');
+        $this->load->model('m_customer');
         $this->load->model('m_dashboard');
 
         //Mengambil daftar menu yang aktif
@@ -82,11 +83,13 @@ class C_order extends CI_Controller {
         $kode_order = 'CRM-' . str_pad(mt_rand(1, 99999999),8,'0',STR_PAD_LEFT);
 		
 		//Tentukan diskon setiap pemesanan kedua
+		$kuota_diskon = $this->m_customer->get_kuota_diskon_by_id($id_customer)->result_array();
 		$jumlah_order = $this->m_order->get_order_count_by_customer($id_customer);
 		$diskon = 0;
-		if($jumlah_order % 2 == 0) 
+		if($jumlah_order % 2 == 0 && intval($kuota_diskon[0]['kuota_diskon']) > 0) {
+			$this->m_customer->decrement_kuota_diskon_by_id($id_customer);
 			$diskon = 10 / 100 * HARGA;
-
+		}
         // Persiapkan data untuk tabel customer
         // $dataCustomer = array();
         // for($i = 0; $i < count($nama); $i++) {
@@ -159,6 +162,10 @@ class C_order extends CI_Controller {
         $status_order = 1;
 
         $affected_row = $this->m_order->update_status_order($kode_order, $status_order);
+		$id_customer = $this->m_order->get_customer_by_kode_order($kode_order)->result_array()[0]['id_customer'];
+		
+		if($this->m_order->get_order_count_by_customer($id_customer) % 2 == 0)
+			$this->m_customer->increment_kuota_diskon_by_id($id_customer);
 
         if($affected_row == TRUE) {
             $this->session->set_flashdata('message_order_admin', '<div class="alert alert-success text-center">Pesanan berhasil dikonfirmasi.</div>');

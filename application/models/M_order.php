@@ -19,6 +19,13 @@ class M_order extends CI_Model {
         //     return FALSE;
     }
 
+	public function get_customer_by_kode_order($kode_order)
+	{
+		$this->db->select('id_customer');
+		$this->db->where('kode_order', $kode_order);
+		return $this->db->get('tbl_order');
+	}
+
     public function get_order_by_id($kode_order) 
     {
         $this->db->where('kode_order', $kode_order);
@@ -34,7 +41,7 @@ class M_order extends CI_Model {
 	public function get_order_count_by_customer($id_customer)
 	{
 		$this->db->where('id_customer', $id_customer);
-		$this->db->where('status_order', 2);
+		$this->db->where('status_order', 1);
 		return $this->db->count_all_results('tbl_order');
 	}
 

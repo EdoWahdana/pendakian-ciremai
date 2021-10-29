@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2021 at 03:03 PM
+-- Generation Time: Oct 29, 2021 at 08:28 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.3.23
 
@@ -116,19 +116,20 @@ CREATE TABLE `tbl_customer` (
   `no_handphone` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `foto_identitas` varchar(100) NOT NULL
+  `foto_identitas` varchar(100) NOT NULL,
+  `kuota_diskon` int(2) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_customer`
 --
 
-INSERT INTO `tbl_customer` (`id_customer`, `id_order`, `nama`, `tanggal_lahir`, `alamat`, `jk`, `jenis_identitas`, `no_identitas`, `no_handphone`, `email`, `password`, `foto_identitas`) VALUES
-(3, 0, 'Edo Wahdanna', NULL, 'lkjsdf.asf8sdf898s', 'L', 'KTP', '328234782347', '01923818238', 'edo@gmail.com', '$2y$10$0WqrrQsMedYGRqEVzZxFj.gUBU0lVWm6QZ7qIaJ3SwNirJbOG1a2a', ''),
-(4, 0, 'Edi Wahdini', NULL, 'Jl.dipati ewanggoy', 'L', 'KTM', '32109883918123', '0812383871', 'edi@gmail.com', '$2y$10$ZmwCty8PEnstWQVr8a5P6ehI9JDF56/QwKWMK7tRpA.kxVOhhoRf6', 'b7460f6929e836cf818fe8717f8b2716.png'),
-(5, 0, 'Coba coba', NULL, 'Jl. coba coba', 'L', 'KTP', '377123700123', '08123717233', 'coba@gmail.com', '$2y$10$Rau4I0Bfx7C6NaVLQsh65ubFYU3DCpNrn9KO6sZyXeimpxVaoIBJa', '3c802f41d14b389e6321e37a0a78b88f.png'),
-(6, 0, 'Siwana', NULL, 'Darma kuningan', 'L', 'KTM', '821727127', '0812373717', 'siwana@gmail.com', '$2y$10$8b6ZcTvwbqshOqT0hO3fJeu0YQ0XtOUwwTYpZdAOfJDbXXAu17j8m', 'e10ad432967c74e5e06c3c3c87a07725.png'),
-(7, 0, 'Muhammad Abdi', '1996-09-05', 'Jl. Kramat Raya No.140', 'L', 'KTP', '238810355757018', '0812373717', 'abdi@gmail.com', '$2y$10$KsCn7EbLOrGMCjFEnfvCgOpqI3u.eAhiYJxpNM1iNXcturpEMiT6C', '048c15ad94c969a9e8ee44b56d17fb69.png');
+INSERT INTO `tbl_customer` (`id_customer`, `id_order`, `nama`, `tanggal_lahir`, `alamat`, `jk`, `jenis_identitas`, `no_identitas`, `no_handphone`, `email`, `password`, `foto_identitas`, `kuota_diskon`) VALUES
+(3, 0, 'Edo Wahdanna', NULL, 'lkjsdf.asf8sdf898s', 'L', 'KTP', '328234782347', '01923818238', 'edo@gmail.com', '$2y$10$0WqrrQsMedYGRqEVzZxFj.gUBU0lVWm6QZ7qIaJ3SwNirJbOG1a2a', '', 1),
+(4, 0, 'Edi Wahdini', NULL, 'Jl.dipati ewanggoy', 'L', 'KTM', '32109883918123', '0812383871', 'edi@gmail.com', '$2y$10$ZmwCty8PEnstWQVr8a5P6ehI9JDF56/QwKWMK7tRpA.kxVOhhoRf6', 'b7460f6929e836cf818fe8717f8b2716.png', 0),
+(5, 0, 'Coba coba', NULL, 'Jl. coba coba', 'L', 'KTP', '377123700123', '08123717233', 'coba@gmail.com', '$2y$10$Rau4I0Bfx7C6NaVLQsh65ubFYU3DCpNrn9KO6sZyXeimpxVaoIBJa', '3c802f41d14b389e6321e37a0a78b88f.png', 0),
+(6, 0, 'Siwana', NULL, 'Darma kuningan', 'L', 'KTM', '821727127', '0812373717', 'siwana@gmail.com', '$2y$10$8b6ZcTvwbqshOqT0hO3fJeu0YQ0XtOUwwTYpZdAOfJDbXXAu17j8m', 'e10ad432967c74e5e06c3c3c87a07725.png', 0),
+(7, 0, 'Muhammad Abdi', '1996-09-05', 'Jl. Kramat Raya No.140', 'L', 'KTP', '238810355757018', '0812373717', 'abdi@gmail.com', '$2y$10$KsCn7EbLOrGMCjFEnfvCgOpqI3u.eAhiYJxpNM1iNXcturpEMiT6C', '048c15ad94c969a9e8ee44b56d17fb69.png', 0);
 
 -- --------------------------------------------------------
 
@@ -169,7 +170,7 @@ CREATE TABLE `tbl_kuota` (
 --
 
 INSERT INTO `tbl_kuota` (`id_kuota`, `kuota_tersisa`, `tanggal`, `bulan`, `tahun`) VALUES
-(3, 13, '2021-06-18', '06', '2021'),
+(3, 10, '2021-06-18', '06', '2021'),
 (4, 19, '2021-09-01', '09', '2021'),
 (5, 9, '2021-12-10', '12', '2021');
 
@@ -228,20 +229,16 @@ CREATE TABLE `tbl_order` (
 INSERT INTO `tbl_order` (`id_order`, `id_customer`, `kode_order`, `tanggal_naik`, `tanggal_turun`, `status_order`, `harga`, `bukti_pembayaran`, `check_in`, `check_out`, `reschedule`) VALUES
 (9, 4, 'CRM-75031814', '2021-06-17', '2021-06-19', '0', 0, 'e353263b97fc45332c2966427d37d8cb.png', 0, 0, 0),
 (10, 4, 'CRM-74125633', '2021-06-17', '2021-06-19', '2', 0, '084f30f6031ee7d67a5c6d02922e15f2.png', 0, 0, 0),
-(11, 4, 'CRM-40788394', '2021-06-17', '2021-06-19', '2', 0, '', 0, 0, 0),
 (12, 4, 'CRM-93124033', '2021-06-17', '2021-06-19', '2', 0, '', 0, 0, 0),
 (13, 3, 'CRM-67480391', '2021-06-17', '2021-06-19', '1', 0, '3ba90852fcbec32c0e0ccb7aff2ff318.jpg', 1, 0, 0),
-(16, 3, 'CRM-99699767', '2021-06-17', '2021-06-19', '0', 0, '', 1, 0, 0),
-(17, 3, 'CRM-89348849', '2021-06-17', '2021-06-19', '0', 0, '', 1, 0, 0),
+(16, 3, 'CRM-99699767', '2021-06-17', '2021-06-19', '1', 0, '2fa01a1bc3b9f209ec9039dffb7d1f6e.png', 1, 0, 0),
+(17, 3, 'CRM-89348849', '2021-06-17', '2021-06-19', '0', 0, 'c355c93a0394a93628e8d522ce7b5f46.png', 1, 0, 0),
 (18, 6, 'CRM-92577479', '2021-06-18', '2021-06-20', '1', 0, '23a3070c3e63a349be4d7b8752f21846.png', 0, 0, 0),
 (19, 7, 'CRM-11299777', '2021-09-01', '2021-09-03', '0', 50000, '', 0, 0, 0),
 (20, 3, 'CRM-90921220', '2021-12-10', '2021-12-12', '1', 50000, 'e65d9a228e3c9a0dfe8ba7ceae724bad.png', 1, 0, 0),
 (21, 3, 'CRM-01015056', '2021-06-18', '2021-06-20', '0', 50000, '', 1, 0, 0),
-(22, 3, 'CRM-72985447', '2021-06-18', '2021-06-20', '0', 50000, '', 1, 0, 0),
 (23, 3, 'CRM-48616227', '2021-06-18', '2021-06-20', '0', 50000, '', 1, 0, 0),
-(24, 3, 'CRM-00187970', '2021-06-18', '2021-06-20', '0', 50000, '', 1, 1, 0),
-(25, 3, 'CRM-52588643', '2021-06-18', '2021-06-20', '0', 45000, '', 1, 0, 0),
-(26, 3, 'CRM-97256380', '2021-06-18', '2021-06-20', '0', 45000, '', 1, 0, 0);
+(24, 3, 'CRM-00187970', '2021-06-18', '2021-06-20', '0', 50000, '', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -477,7 +474,7 @@ ALTER TABLE `tbl_menu_admin`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `tbl_pos`
