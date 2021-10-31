@@ -53,7 +53,7 @@ class C_auth extends CI_Controller {
 
     public function register() 
     {
-        $this->form_validation->set_error_delimiters('<small class="text-danger pl-2 pb-2">', '</small>');
+        $this->form_validation->set_error_delimiters('<small class="text-danger pl-2 pb-2 mx-4" style="font-size: 15px;">', '</small>');
 
         $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required|trim');
         $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required|trim');
@@ -102,10 +102,10 @@ class C_auth extends CI_Controller {
 
             $affected_row = $this->m_customer->insert_customer($data);
 			if($affected_row == TRUE){
-				$this->session->set_flashdata('message_register', '<div class="alert alert-success">Akun pendaki baru berhasil terdaftar.</div>');
+				$this->session->set_flashdata('message_login', '<div class="alert alert-success">Akun pendaki baru berhasil terdaftar.</div>');
 				redirect('c_home/login');
 			} else {
-				$this->session->set_flashdata('message_register', '<div class="alert alert-danger">Kesalahan! Silahkan daftar ulang.</div>');
+				$this->session->set_flashdata('message_login', '<div class="alert alert-danger">Kesalahan! Silahkan daftar ulang.</div>');
 				redirect('c_home/register');
 			}
         }
