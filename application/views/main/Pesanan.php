@@ -50,7 +50,7 @@
                         <td>
                             <?php if($o['bukti_pembayaran'] == '') { ?>
                                 <button data-id="<?= $o['id_order'] ?>" class="btn btn-sm btn-info" onclick="$('#id_order').val($(this).data('id')); $('#uploadModal').modal('show');"><i class="fa fa-upload"></i> Upload bukti</button>
-                            <?php } else if($o['status_order'] == '1') { ?>
+                            <?php } else if($o['status_order'] == '1' && $o['reschedule'] == 0) { ?>
                                 <a href="<?= base_url('assets/bukti/') . $o['bukti_pembayaran'] ?>" target="blank"><span class="badge badge-info">Lihat Bukti</span></a>
 								<button data-id="<?= $o['kode_order'] ?>" class="badge badge-warning" onclick="$('#id_order_reschedule').val($(this).data('id')); $('#rescheduleModal').modal('show');">Re-schedule</button>
                             <?php } else { ?>

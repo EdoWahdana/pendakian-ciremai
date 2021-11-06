@@ -92,6 +92,7 @@ class M_order extends CI_Model {
 		$this->db->where('kode_order', $id_order);
 		$this->db->set('tanggal_naik', $tanggal_naik);
 		$this->db->set('tanggal_turun', $tanggal_turun);
+		$this->db->set('reschedule', 'reschedule+1', FALSE);
 		return $this->db->update('tbl_order');
 	}
 	
