@@ -87,6 +87,14 @@ class M_order extends CI_Model {
         return $this->db->update('tbl_order');
     }
 	
+	public function update_tanggal($id_order, $tanggal_naik, $tanggal_turun)
+	{
+		$this->db->where('kode_order', $id_order);
+		$this->db->set('tanggal_naik', $tanggal_naik);
+		$this->db->set('tanggal_turun', $tanggal_turun);
+		return $this->db->update('tbl_order');
+	}
+	
 	public function update_customer_check_in($kode_order)
 	{
 		$this->db->where('kode_order', $kode_order);

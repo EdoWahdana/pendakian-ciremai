@@ -48,11 +48,15 @@
                             ?>
                         </td>
                         <td>
-                            <?php if($o['bukti_pembayaran'] == '') {?>
-                                <button data-id="<?= $o['id_order'] ?>" class="btn btn-sm btn-info" onclick="$('#id_order').val($(this).data('id')); $('#uploadModal').modal('show');"><i class="fa fa-upload"></i> Upload bukti</button></td>
-                            <?php } else { ?>
+                            <?php if($o['bukti_pembayaran'] == '') { ?>
+                                <button data-id="<?= $o['id_order'] ?>" class="btn btn-sm btn-info" onclick="$('#id_order').val($(this).data('id')); $('#uploadModal').modal('show');"><i class="fa fa-upload"></i> Upload bukti</button>
+                            <?php } else if($o['status_order'] == '1') { ?>
                                 <a href="<?= base_url('assets/bukti/') . $o['bukti_pembayaran'] ?>" target="blank"><span class="badge badge-info">Lihat Bukti</span></a>
-                            <?php } ?>
+								<button data-id="<?= $o['kode_order'] ?>" class="badge badge-warning" onclick="$('#id_order_reschedule').val($(this).data('id')); $('#rescheduleModal').modal('show');">Re-schedule</button>
+                            <?php } else { ?>
+								<a href="<?= base_url('assets/bukti/') . $o['bukti_pembayaran'] ?>" target="blank"><span class="badge badge-info">Lihat Bukti</span></a>
+							<?php } ?>
+						</td>
                     </tr>
                     <?php } ?>
                 </tbody>
@@ -60,6 +64,52 @@
         </div>
     </div>
 
+</div>
+
+<div class="modal fade" id="rescheduleModal" role="dialog">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title text-dark">Pilih Jadwal Pendakian Baru</h5>
+				<button type="button" class="close" data-dismiss="modal">
+					<span class="text-dark" aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<form action="<?= base_url('c_home/reschedule'); ?>" method="post" enctype="multipart/form-data">
+				<div class="modal-body">
+					<input type="hidden" name="id_order" id="id_order_reschedule">
+					<div class="row">
+						<div class="col-sm-6">
+							<label >Pilih Bulan</label>
+							<select name="bulan" id="bulan" class="form-control">
+								<option selected disabled>- Bulan -</option>
+								<option value="01">Januari</option>
+								<option value="02">Februari</option>
+								<option value="03">Maret</option>
+								<option value="04">April</option>
+								<option value="05">Mei</option>
+								<option value="06">Juni</option>
+								<option value="07">Juli</option>
+								<option value="08">Agustus</option>
+								<option value="09">September</option>
+								<option value="10">Oktober</option>
+								<option value="11">November</option>
+								<option value="12">Desember</option>
+							</select>						
+						</div>
+						<div class="col-sm-6">
+							<label >Pilih Tahun</label>
+							<select name="tahun" id="tahun" class="form-control">
+								<option selected value="2021">2021</option>
+								<option value="2022">2022</option>
+							</select>
+						</div>
+					</div>
+					<input type="submit" class="btn btn-secondary" value="Cek Kuota Pendakian">
+				</div>
+			</form>
+		</div>
+	</div>
 </div>
 
 <div class="modal fade" id="uploadModal" role="dialog">

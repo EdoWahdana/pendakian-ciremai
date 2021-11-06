@@ -71,7 +71,8 @@ class C_home extends CI_Controller {
 		$this->load->view('main/template/end');
 	}
 
-	public function login() {
+	public function login() 
+	{
 		$data['title'] = "Login Pendakian | Ciremai";
 
 		$this->load->view('main/template/header', $data);
@@ -80,12 +81,34 @@ class C_home extends CI_Controller {
 		$this->load->view('main/template/end');
 	}
 
-	public function register() {
+	public function register() 
+	{
 		$data['title'] = "Register Pendakian | Ciremai";
 
 		$this->load->view('main/template/header', $data);
 		$this->load->view('main/template/navbar');
 		$this->load->view('main/Register');
+		$this->load->view('main/template/end');
+	}
+	
+	public function reschedule()
+	{
+		$id_order = $this->input->post('id_order');
+		$bulan = $this->input->post('bulan');
+		$tahun = $this->input->post('tahun');
+		
+		$data['title'] = "Reschedule Jadwal Pendakian";
+		$data['id_order'] = $id_order;
+		
+		$dataKuota = $this->m_kuota->get_kuota_per_periode($bulan, $tahun)->result_array();
+        if($dataKuota == NULL || $dataKuota == '')
+            $dataKuota = 0;
+
+        $data['dataKuota'] = $dataKuota;
+		
+		$this->load->view('main/template/header', $data);
+		$this->load->view('main/template/navbar');
+		$this->load->view('main/Reschedule', $data);
 		$this->load->view('main/template/end');
 	}
 

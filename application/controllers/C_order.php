@@ -12,6 +12,7 @@ class C_order extends CI_Controller {
         $this->load->model('m_order');
         $this->load->model('m_customer');
         $this->load->model('m_dashboard');
+        $this->load->model('m_kuota');
 
         //Mengambil daftar menu yang aktif
         $this->menu = $this->m_dashboard->get_menu_aktif()->result_array();
@@ -121,6 +122,21 @@ class C_order extends CI_Controller {
             redirect('c_home/order?tanggal=' . $tanggal_naik);
         }
     }
+	
+	public function reschedule()
+	{
+		$id_order = $this->input->post('id_order');
+		$tanggal_naik = $this->input->post('tanggal_naik');
+		$tanggal_turun = date("Y-m-d", strtotime($tanggal_naik.'+2 days'));
+		
+		if($this->m_order->update_tanggal($id_order, $tanggal_naik, $tanggal_turun) == TRUE) {
+			$this->session->set_flashdata('message_pesanan', '<div class="alert alert-success text-center">Reschedule jadwal pada Kode Order : <strong>'.$id_order.'</strong> telah berhasil.</div>');
+			redirect('c_home/pesanan');
+		} else {
+			$this->session->set_flashdata('message_pesanan', '<div class="alert alert-danger text-center">Reschedule jadwal pada Kode Order : <strong>'.$id_order.'</strong> GAGAL.</div>');
+			redirect('c_home/pesanan');
+		}
+	}
 
     public function status() 
     {
@@ -128,8 +144,6 @@ class C_order extends CI_Controller {
 
         $data['title'] = "Status Booking | Ciremai";
         $data['data_order'] = $this->m_order->get_order_by_id($kode_order)->result_array();
-
-		
 
 		$this->load->view('main/template/header', $data);
 		$this->load->view('main/template/navbar');
