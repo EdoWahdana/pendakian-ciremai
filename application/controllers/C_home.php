@@ -30,6 +30,9 @@ class C_home extends CI_Controller {
 		//Ambil data pos dan kirim ke homepage
 		$data['pos'] = $this->m_pos->get_all_pos()->result_array();
 
+		//Ambil data bulan kuota tersedia perbulan
+		$data['kuota'] = $this->m_kuota->get_kuota_tersedia_per_bulan()->result_array();
+
 		$this->load->view('main/template/header', $data);
 		$this->load->view('main/template/navbar');
 		$this->load->view('main/Home2', $data);

@@ -1,3 +1,7 @@
+<?php 
+	$bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+?>
+	
 <style>
 .card-img-top {
     width: 100%;
@@ -23,18 +27,9 @@
                                 <label >Pilih Bulan</label>
                                 <select name="bulan" id="bulan" class="form-control">
                                     <option selected disabled>- Bulan -</option>
-                                    <option value="01">Januari</option>
-                                    <option value="02">Februari</option>
-                                    <option value="03">Maret</option>
-                                    <option value="04">April</option>
-                                    <option value="05">Mei</option>
-                                    <option value="06">Juni</option>
-                                    <option value="07">Juli</option>
-                                    <option value="08">Agustus</option>
-                                    <option value="09">September</option>
-                                    <option value="10">Oktober</option>
-                                    <option value="11">November</option>
-                                    <option value="12">Desember</option>
+									<?php foreach($kuota as $k) { ?>
+										<option value="<?= $k['bulan'] ?>"><?= $bulan[$k['bulan'] - 1] ?></option>										
+									<?php } ?>
                                 </select>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">

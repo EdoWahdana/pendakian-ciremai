@@ -30,5 +30,12 @@ class M_kuota extends CI_Model {
         $this->db->where('tahun', $tahun);
         return $this->db->get('tbl_kuota');
     }
+	
+	public function get_kuota_tersedia_per_bulan() {
+		$this->db->or_where('tahun', '2021');
+		$this->db->or_where('tahun', '2022');
+		$this->db->group_by('bulan');
+		return $this->db->get('tbl_kuota');
+	}
 
 }
